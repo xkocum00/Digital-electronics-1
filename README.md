@@ -9,3 +9,15 @@ The repository contains VHDL lab exercises for bachelor course [*Digital Electro
 
 1. [Introduction to Git and VHDL](Labs/01-gates)
 2. Combinational logic
+### Vivado
+
+3. Introduction to Vivado
+4. Seven-segment display decoder
+5. Binary counter
+6. Driver for multiple seven-segment displays
+7. Stopwatch
+8. Traffic light controller
+
+### VHDL project
+
+9.-13. General instructions
