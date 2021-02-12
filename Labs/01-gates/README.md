@@ -7,7 +7,7 @@
 ## Part 3: EDA Playground
 
 ### De Morgan's laws
-![Simulace De Morgan's LAW ](Images/demorganslaw.PNG)
+![Simulace De Morgan's LAW ](Images/demorganslaw.png)
 
 | **c** | **b** |**a** | **f(c,b,a)** |
 | :-: | :-: | :-: | :-: |
