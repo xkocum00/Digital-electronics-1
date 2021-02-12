@@ -162,7 +162,7 @@ end architecture testbench;
 ```
 
 ##### Link to EDA PlayGround
-[EDA PlayGroud](https://www.edaplayground.com/x/GcJv)
+[EDA PlayGroud](https://www.edaplayground.com/x/YqHa)
 
 
 ### Distributive laws
@@ -171,4 +171,4 @@ end architecture testbench;
 
 
 ##### Link to EDA PlayGround
-[EDA PlayGroud](https://www.edaplayground.com/x/GcJv)
+[EDA PlayGroud](https://www.edaplayground.com/x/PsfK)
