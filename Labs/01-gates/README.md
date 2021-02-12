@@ -1,14 +1,11 @@
 # LAB 01-gates
 
-### Link to EDA PlayGround
-[EDA PlayGroud](https://www.edaplayground.com/x/YqHa)
 ### Link to GitHub repository
 [GitHub repository](https://github.com/xkocum00/Digital-electronics-1.git)
 
 
 ## Part 3: EDA Playground
-### Example of basic gates
-![First Task ScreenShot](images/part3_1.PNG)
+
 ### De Morgan's laws
 ![Simulace De Morgan's LAW ](images/part3_2.PNG)
 
