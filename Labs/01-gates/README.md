@@ -23,7 +23,7 @@
 
 ## Experiments on your own
 ### Boolean postulates
-![ScreenShot](images/task11.png)
+![ScrShot](Images/task11.png)
 ### VHDL CODE design.vhd
 ```------------------------------------------------------------------------
 --
@@ -163,7 +163,7 @@ end architecture testbench;
 
 
 ### Distributive laws
-![ScreenShot](images/EOYO_2.PNG)
+![ScrShot](Images/distributivelaws.png)
 
 
 
