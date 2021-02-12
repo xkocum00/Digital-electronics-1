@@ -23,7 +23,7 @@
 
 ## Experiments on your own
 ### Boolean postulates
-![ScreenShot](images/EOYO_1.PNG)
+![ScreenShot](images/task11.png)
 ### VHDL CODE design.vhd
 ```------------------------------------------------------------------------
 --
