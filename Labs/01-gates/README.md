@@ -24,6 +24,9 @@
 ## Experiments on your own
 ### Boolean postulates
 ![ScrShot](Images/task11.png)
+##### Link to EDA PlayGround
+[EDA PlayGroud De Morgan](https://www.edaplayground.com/x/YqHa)
+
 ### VHDL Demorgans design.vhd
 ```------------------------------------------------------------------------
 ------------------------------------------------------------------------
@@ -77,6 +80,14 @@ end architecture dataflow;
 
 
 ```
+### Distributive laws
+![ScrShot](Images/distributivelaws.png)
+
+
+
+##### Link to EDA PlayGround
+[EDA PlayGroud  distribuční zákony](https://www.edaplayground.com/x/PsfK)
+
 ### VHDL Distributive laws design.vhd
 ```
 ------------------------------------------------------------------------
@@ -144,14 +155,5 @@ end architecture dataflow;
 
 ```
 
-##### Link to EDA PlayGround
-[EDA PlayGroud De Morgan](https://www.edaplayground.com/x/YqHa)
 
 
-### Distributive laws
-![ScrShot](Images/distributivelaws.png)
-
-
-
-##### Link to EDA PlayGround
-[EDA PlayGroud  distribuční zákony](https://www.edaplayground.com/x/PsfK)
