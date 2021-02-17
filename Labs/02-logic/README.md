@@ -184,3 +184,6 @@ begin
 
 end architecture testbench;
 ```
+
+
+[Link to public EDA Playground example] (https://www.edaplayground.com/x/8QrT)
