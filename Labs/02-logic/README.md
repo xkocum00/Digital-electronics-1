@@ -36,7 +36,7 @@ Use K-maps to create a simplified SoP form of the "greater than" function and a 
 <img src="IMAGES/AmensinezB.png" width="500">
 
 ### Karnaugh map for "equals" function
-<img src="IMAGES/ArovnoB.png" width="480">
+<img src="IMAGES/ArovnoB.png" width="470">
 
 ### Karnaugh map for "less" function
 <img src="IMAGES/AvetsinezB.png" width="480">
