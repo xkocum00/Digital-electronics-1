@@ -184,6 +184,19 @@ begin
 
 end architecture testbench;
 ```
+## Listing of simulator console output with reported error
 
-
+```
+ [2021-02-17 13:22:23 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_2bit && ghdl -r  tb_comparator_2bit   
+analyze design.vhd
+analyze testbench.vhd
+elaborate tb_comparator_2bit
+testbench.vhd:40:9:@0ms:(report note): Stimulus process started
+testbench.vhd:46:9:@100ns:(assertion error): Test failed for input combination: 0000, 0000
+testbench.vhd:60:9:@300ns:(assertion error): Test failed for input combination: 0000, 0010
+testbench.vhd:82:9:@600ns:(assertion error): Test failed for input combination: 0000, 0101
+testbench.vhd:96:9:@800ns:(assertion error): Test failed for input combination: 0000, 0111
+testbench.vhd:118:9:@1us:(report note): Stimulus process finished
+Done
+```
 [Link to public EDA Playground example] (https://www.edaplayground.com/x/8QrT)
