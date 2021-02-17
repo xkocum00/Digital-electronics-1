@@ -1,5 +1,5 @@
 # Lab 2: Combinational logic
-## Preparation tasks (done before the lab at home)
+## 1.Preparation tasks (done before the lab at home)
 
 *Digital* or *Binary comparator* compares the digital signals A, B presented at input terminal and produce outputs depending upon the condition of those inputs. Complete the truth table for 2-bit *Identity comparator* (B equals A), and two *Magnitude comparators* (B is greater than A, B is less than A). Note that, such a digital device has four inputs and three outputs/functions.
 
@@ -29,7 +29,8 @@
 
 **bgta_pos** = (b1 + b0 + a1 + a0) * (b1 + b0 + a1 + ¬a0) * (b1 + b0 + ¬a1 + a0) * (b1 + b0 + ¬a1 + ¬a0) * (b1 + ¬b0 + a1 + ¬a0) * 
             (b1 + ¬b0 + ¬a1 + a0) * (b1 + ¬b0 + ¬a1 + ¬a0) * (¬b1 + b0 + ¬a1 + a0) * (¬b1 + b0 + ¬a1 + ¬a0) * (¬b1 + ¬b0 + ¬a1 + ¬a0);
-## K-maps
+## Part 2: A 2-bit comparator
+### K-maps
 Use K-maps to create a simplified SoP form of the "greater than" function and a PoS form of the "less than" function.
 
 ### Karnaugh map for B > A
@@ -44,6 +45,7 @@ Use K-maps to create a simplified SoP form of the "greater than" function and a 
 <img src="IMAGES/AvetsinezB.png" width="480">
 <img src="IMAGES/3.png" width="500">
 
+## Part 3: A 4-bit binary comparator
 ## 4-bit comparator code design
 
 ```library ieee;
