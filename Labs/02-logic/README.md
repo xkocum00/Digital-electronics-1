@@ -48,7 +48,8 @@ Use K-maps to create a simplified SoP form of the "greater than" function and a 
 ## Part 3: A 4-bit binary comparator
 ## 4-bit comparator code design
 
-```library ieee;
+```vhdl
+library ieee;
 use ieee.std_logic_1164.all;
 
 ------------------------------------------------------------------------
@@ -86,7 +87,8 @@ end architecture Behavioral;
 
 ## 4-bit comparator test bench code testbench
 
-```library ieee;
+```vhdl
+library ieee;
 use ieee.std_logic_1164.all;
 
 ------------------------------------------------------------------------
@@ -211,7 +213,7 @@ end architecture testbench;
 ```
 ## Listing of simulator console output with reported error
 
-```
+```vhdl
 [2021-02-17 13:30:59 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   
 analyze design.vhd
 analyze testbench.vhd
