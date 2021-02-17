@@ -187,10 +187,10 @@ end architecture testbench;
 ## Listing of simulator console output with reported error
 
 ```
- [2021-02-17 13:22:23 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_2bit && ghdl -r  tb_comparator_2bit   
+[2021-02-17 13:30:59 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   
 analyze design.vhd
 analyze testbench.vhd
-elaborate tb_comparator_2bit
+elaborate tb_comparator_4bit
 testbench.vhd:40:9:@0ms:(report note): Stimulus process started
 testbench.vhd:46:9:@100ns:(assertion error): Test failed for input combination: 0000, 0000
 testbench.vhd:60:9:@300ns:(assertion error): Test failed for input combination: 0000, 0010
