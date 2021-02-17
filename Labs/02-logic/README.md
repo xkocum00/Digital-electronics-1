@@ -213,7 +213,7 @@ end architecture testbench;
 ```
 ## Listing of simulator console output with reported error
 
-```vhdl
+```bash
 [2021-02-17 13:30:59 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   
 analyze design.vhd
 analyze testbench.vhd
