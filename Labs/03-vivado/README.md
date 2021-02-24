@@ -163,13 +163,22 @@ end architecture testbench;
 
 ## 3. A Vivado tutorial. Submit:
     * Your tutorial for Vivado design flow: project creation, adding source file, adding testbench file, running simulation, (adding XDC constraints file).
+1.) open vivado and click on File -> Project -> New...
 <img src="IMAGES/1.png" >
+&nbsp;
 <img src="IMAGES/2.png" >
+&nbsp;
 <img src="IMAGES/3.png" >
+&nbsp;
 <img src="IMAGES/4.png" >
+&nbsp;
 <img src="IMAGES/5.png" >
+&nbsp;
 <img src="IMAGES/6.png" >
+&nbsp;
 <img src="IMAGES/7.png" >
+&nbsp;
+<img src="IMAGES/8.png" >
 &nbsp;
 ```vhdl
 set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { a_i[0] }]; #IO_L24N_T3_RS0_15 Sch=sw[0]
