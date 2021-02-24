@@ -170,9 +170,9 @@ end architecture testbench;
 <img src="IMAGES/2.png" >
 &nbsp;
 #### give name to your project and select location path
-<img src="IMAGES/3.png" >
-&nbsp;
-#### select rtl
+--<img src="IMAGES/3.png" >
+--&nbsp;
+--#### select rtl
 <img src="IMAGES/4.png" >
 &nbsp;
 #### create source file
