@@ -164,29 +164,31 @@ end architecture testbench;
 ## 3. A Vivado tutorial. Submit:
 #### firstly open vivado and click on File -> Project -> New...
 &nbsp;
-<img src="IMAGES/1.png" >
+![scr](IMAGES/1.png)
 #### click next
 &nbsp;
-<img src="IMAGES/2.png" >
+![scr](IMAGES/2.png)
 &nbsp;
 #### give name to your project and select location path
-<img src="IMAGES/3.png" >
+![scr](IMAGES/3.png)
 &nbsp;
 #### select rtl
-<img src="IMAGES/4.png" >
+![scr](IMAGES/4.png)
 &nbsp;
 #### create source file
-<img src="IMAGES/5.png" >
+![scr](IMAGES/5.png)
 &nbsp;
 #### next
-<img src="IMAGES/6.png" >
+![scr](IMAGES/6.png)
 &nbsp;
 #### select your board
-<img src="IMAGES/7.png" >
+![scr](IMAGES/7.png)
 &nbsp;
 #### finish
-<img src="IMAGES/8.png" >
+![scr](IMAGES/8.png)
 &nbsp;
+
+## xdc file
 
 ```vhdl
 set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { a_i[0] }]; #IO_L24N_T3_RS0_15 Sch=sw[0]
