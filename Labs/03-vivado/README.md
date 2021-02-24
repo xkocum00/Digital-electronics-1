@@ -164,28 +164,28 @@ end architecture testbench;
 ## 3. A Vivado tutorial. Submit:
 #### firstly open vivado and click on File -> Project -> New...
 &nbsp;
-![scr](IMAGES/1.PNG)
+![scr](IMAGES/1.png)
 #### click next
 &nbsp;
-![scr](IMAGES/2.PNG)
+![scr](IMAGES/2.png)
 &nbsp;
 #### give name to your project and select location path
-![scr](IMAGES/3.PNG)
+![scr](IMAGES/3.png)
 &nbsp;
 #### select rtl
-![scr](IMAGES/4.PNG)
+![scr](IMAGES/4.png)
 &nbsp;
 #### create source file
-![scr](IMAGES/5.PNG)
+![scr](IMAGES/5.png)
 &nbsp;
 #### next
-![scr](IMAGES/6.PNG)
+![scr](IMAGES/6.png)
 &nbsp;
 #### select your board
-![scr](IMAGES/7.PNG)
+![scr](IMAGES/7.png)
 &nbsp;
 #### finish
-![scr](IMAGES/8.PNG)
+![scr](IMAGES/8.png)
 &nbsp;
 
 ## xdc file
