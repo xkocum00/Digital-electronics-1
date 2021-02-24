@@ -187,7 +187,9 @@ end architecture testbench;
 #### finish
 <img src="IMAGES/8.png" >
 &nbsp;
+
 ##xdc file
+
 ```vhdl
 set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { a_i[0] }]; #IO_L24N_T3_RS0_15 Sch=sw[0]
 set_property -dict { PACKAGE_PIN L16   IOSTANDARD LVCMOS33 } [get_ports { a_i[1] }]; #IO_L3N_T0_DQS_EMCCLK_14 Sch=sw[1]
