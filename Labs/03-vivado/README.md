@@ -1,14 +1,5 @@
 # Lab 3: Introduction to Vivado
 
-![Logo](../../logolink_eng.jpg)
-
-### Learning objectives
-
-The purpose of this laboratory exercise is to learn to use Vivado to create a simple HDL design targeting Nexys A7 Artix-7 FPGA Trainer Board.
-
-![Screenshot od Vivado](Images/screenshot_vivado.png)
-
-
 ## Preparation tasks (done before the lab at home)
 
 1. Follow the instructions for [Windows](https://github.com/tomas-fryza/Digital-electronics-1/wiki/How-to-Install-Vivado-2020.2-on-Windows) or [Linux](https://github.com/tomas-fryza/Digital-electronics-1/wiki/How-to-Install-Vivado-2020.1-on-Linux), download and install Vivado Design Suite.
