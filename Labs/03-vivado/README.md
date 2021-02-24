@@ -18,7 +18,8 @@
 
 &nbsp;
 
-
+<img src="IMAGES/waveform.png" width="500">
+<img src="IMAGES/1.png" width="300">
 
 
 
