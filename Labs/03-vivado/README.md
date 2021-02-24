@@ -3,6 +3,7 @@
 &nbsp;
 
 ## 1. Preparation tasks (done before the lab at home). Submit:
+### Figure or table with connection of 16 slide switches and 16 LEDs on Nexys A7 board.
 <img src="IMAGES/schematic.png" >
 
 &nbsp;
@@ -162,6 +163,13 @@ end architecture testbench;
 
 ## 3. A Vivado tutorial. Submit:
     * Your tutorial for Vivado design flow: project creation, adding source file, adding testbench file, running simulation, (adding XDC constraints file).
+<img src="IMAGES/1.png" >
+<img src="IMAGES/2.png" >
+<img src="IMAGES/3.png" >
+<img src="IMAGES/4.png" >
+<img src="IMAGES/5.png" >
+<img src="IMAGES/6.png" >
+<img src="IMAGES/7.png" >
 &nbsp;
 ```vhdl
 set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { a_i[0] }]; #IO_L24N_T3_RS0_15 Sch=sw[0]
