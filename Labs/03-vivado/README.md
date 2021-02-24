@@ -3,7 +3,8 @@
 &nbsp;
 
 ## 1. Preparation tasks (done before the lab at home). Submit:
-    <img src="IMAGES/schematic.png" >
+<img src="IMAGES/schematic.png" >
+
 &nbsp;
 
 ## 2. Two-bit wide 4-to-1 multiplexer. Submit:
