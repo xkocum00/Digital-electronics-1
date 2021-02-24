@@ -162,8 +162,8 @@ end architecture testbench;
     
 
 ## 3. A Vivado tutorial. Submit:
-    * Your tutorial for Vivado design flow: project creation, adding source file, adding testbench file, running simulation, (adding XDC constraints file).
-1.) open vivado and click on File -> Project -> New...
+    
+firstly open vivado and click on File -> Project -> New...
 <img src="IMAGES/1.png" >
 &nbsp;
 <img src="IMAGES/2.png" >
