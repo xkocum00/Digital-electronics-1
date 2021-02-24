@@ -167,25 +167,25 @@ end architecture testbench;
 ![1](IMAGES/1.PNG)
 #### click next
 &nbsp;
-![1](IMAGES/2.PNG)
+![2](IMAGES/2.PNG)
 &nbsp;
 #### give name to your project and select location path
-![1](IMAGES/3.PNG)
+![3](IMAGES/3.PNG)
 &nbsp;
 #### select rtl
-![1](IMAGES/4.PNG)
+![4](IMAGES/4.PNG)
 &nbsp;
 #### create source file
-![1](IMAGES/5.PNG)
+![5](IMAGES/5.PNG)
 &nbsp;
 #### next
-![1](IMAGES/6.PNG)
+![6](IMAGES/6.PNG)
 &nbsp;
 #### select your board
-![1](IMAGES/7.PNG)
+![7](IMAGES/7.PNG)
 &nbsp;
 #### finish
-![1](IMAGES/8.PNG)
+![8](IMAGES/8.PNG)
 &nbsp;
 
 ##xdc file
