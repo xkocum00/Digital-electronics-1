@@ -162,7 +162,6 @@ end architecture testbench;
     
 
 ## 3. A Vivado tutorial. Submit:
-    
 firstly open vivado and click on File -> Project -> New...
 &nbsp;
 <img src="IMAGES/1.png" >
