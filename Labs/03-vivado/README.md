@@ -1,15 +1,11 @@
 # Lab 3: Introduction to Vivado
 
-## Preparation tasks (done before the lab at home)
-
-1. Follow the instructions for [Windows](https://github.com/tomas-fryza/Digital-electronics-1/wiki/How-to-Install-Vivado-2020.2-on-Windows) or [Linux](https://github.com/tomas-fryza/Digital-electronics-1/wiki/How-to-Install-Vivado-2020.1-on-Linux), download and install Vivado Design Suite.
-
-2. The Nexys A7 board provides sixteen switches and LEDs. The switches can be used to provide inputs, and the LEDs can be used as output devices. See [schematic](https://github.com/tomas-fryza/Digital-electronics-1/blob/master/Docs/nexys-a7-sch.pdf) or [reference manual](https://reference.digilentinc.com/reference/programmable-logic/nexys-a7/reference-manual) of the Nexys A7 board and find out the connection of slide switches and LEDs.
 &nbsp;
+
 ## 1. Preparation tasks (done before the lab at home). Submit:
-    * Figure or table with connection of 16 slide switches and 16 LEDs on Nexys A7 board.
-<img src="IMAGES/schematic.png" >
+    <img src="IMAGES/schematic.png" >
 &nbsp;
+
 ## 2. Two-bit wide 4-to-1 multiplexer. Submit:
 ### code design
 
