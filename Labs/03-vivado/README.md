@@ -8,16 +8,10 @@
 
 &nbsp;
 
-&nbsp;
+'''
 
-&nbsp;
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
+## simulated time waveforms
 <img src="IMAGES/waveforms.png" >
 
 
