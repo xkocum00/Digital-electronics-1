@@ -8,7 +8,7 @@
 &nbsp;
 ## 1. Preparation tasks (done before the lab at home). Submit:
     * Figure or table with connection of 16 slide switches and 16 LEDs on Nexys A7 board.
-
+<img src="IMAGES/schematic.png" >
 &nbsp;
 ## 2. Two-bit wide 4-to-1 multiplexer. Submit:
 ### code design
