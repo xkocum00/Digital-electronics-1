@@ -18,7 +18,7 @@
 
 &nbsp;
 
-<img src="IMAGES/waveforms.png" width="500">
+<img src="IMAGES/waveforms.png" >
 
 
 
