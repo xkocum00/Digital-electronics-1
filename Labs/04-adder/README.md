@@ -1,404 +1,335 @@
 # Lab 4: Binary adder
 
-#### Objectives
+# Digital-electronics-1
 
-The purpose of this laboratory exercise is to design an adder. It is a type of digital circuit that performs the operation of additions of two numbers.
-
-
-#### Materials
-
-You will use slide switches on the CPLD expansion board ([schematic](../../Docs/cpld_expansion.pdf)) as inputs and 7-segment display on the CoolRunner-II CPLD starter board ([XC2C256-TQ144](../../Docs/xc2c256_cpld.pdf), [manual](../../Docs/coolrunner-ii_rm.pdf), [schematic](../../Docs/coolrunner-ii_sch.pdf)) as output device.
-
-![CoolRunner-II CPLD starter board](Images/coolrunner_expansion_board.jpg)
+## My GitHub repository
 
 
-## 1 Preparation tasks (done before the lab at home)
 
-1. A half adder has two inputs A and B and two outputs Carry and Sum. Complete the half adder truth table. Draw a logic diagram of both output functions.
+## Lab assignment 3)
 
-    | **B** | **A** | **Carry** | **Sum** |
-    | :-: | :-: | :-: | :-: |
-    | 0 | 0 | 0 | 0 |
-    | 0 | 1 | 1 | 0 |
-    | 1 | 0 | 1 | 0 |
-    | 1 | 1 | 0 | 0 |
+### Preparation tasks (using my Nexys 4 DDR):
 
-2. A full adder has three inputs and two outputs. The two inputs are A, B, and Carry input. The outputs are Carry output and Sum. Complete the full adder truth table and draw a logic diagram of both output functions.
+Decoder truth table for common anode 7-segment display.
 
-    | **Cin** | **B** | **A** | **Cout** | **Sum** |
-    | :-: | :-: | :-: | :-: | :-: |
-    | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 1 | 0 | 1 |
-    | 0 | 1 | 0 | 0 | 1 |
-    | 0 | 1 | 1 | 1 | 0 |
-    | 1 | 0 | 0 | 0 | 1 |
-    | 1 | 0 | 1 | 1 | 0 |
-    | 1 | 1 | 0 | 1 | 0 |
-    | 1 | 1 | 1 | 1 | 1 |
+| **Hex** | **Inputs** | **A** | **B** | **C** | **D** | **E** | **F** | **G** |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 0 | 0000 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+| 1 | 0001 | 1 | 0 | 0 | 1 | 1 | 1 | 1 |
+| 2 | 0010 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+| 3 | 0011 | 0 | 0 | 0 | 0 | 1 | 1 | 0 |
+| 4 | 0100 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 
+| 5 | 0101 | 0 | 1 | 0 | 0 | 1 | 0 | 0 |
+| 6 | 0110 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 7 | 0111 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
+| 8 | 1000 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 9 | 1001 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| A | 1010 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
+| b | 1011 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
+| C | 1100 | 0 | 1 | 1 | 0 | 0 | 0 | 1 |
+| d | 1101 | 1 | 0 | 0 | 0 | 0 | 1 | 0 |
+| E | 1110 | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
+| F | 1111 | 0 | 1 | 1 | 1 | 0 | 0 | 0 |
 
-3. Find the relationship between half adder and full adder logic diagrams.
+![Schematic of used HW](img/schematic.PNG)
 
-4. See schematic of the [CPLD expansion board](../../Docs/cpld_expansion.pdf) and find out the connection of LEDs, push buttons, and slide switches.
+### Seven-segment display decoder
 
-
-## 2 Synchronize Git and create a new folder
-
-1. Open a Linux terminal, use `cd` commands to change path to your Digital-electronics-1 working directory, and [synchronize the contents](https://github.com/joshnh/Git-Commands) with GitHub.
-
-    ```bash
-    $ pwd
-    /home/lab661
-    $ cd Documents/your-name/Digital-electronics-1/
-    $ pwd
-    /home/lab661/Documents/your-name/Digital-electronics-1
-    $ git pull
-    ```
-
-2. Create a new folder `Labs/04-adder`
-
-    ```bash
-    $ cd Labs/
-    $ mkdir 04-adder
-    $ cd 04-adder/
-    $ touch README.md
-    $ ls
-    README.md
-    ```
-
-
-## 3 VHDL code for half adder
-
-1. Follow instructions from wiki, [create a new project in ISE](https://github.com/tomas-fryza/Digital-electronics-1/wiki/How-to-create-a-new-project-in-ISE) titled `binary_adder` for XC2C256-TQ144 CPLD device. Make sure the project location is `/home/lab661/Documents/your-name/Digital-electronics-1/Labs/04-adder`, ie in **your** local folder.
-
-2. Create a new source file **Project > New Source... > VHDL Module**, name it `half_adder` and copy/paste the following code template.
+#### Arcitecture code (hex_7seg.vhd)
 
 ```vhdl
-------------------------------------------------------------------------
---
--- Half adder.
--- Xilinx XC2C256-TQ144 CPLD, ISE Design Suite 14.7
---
--- Copyright (c) 2019-2020 Tomas Fryza
--- Dept. of Radio Electronics, Brno University of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-------------------------------------------------------------------------
-
-library ieee;
-use ieee.std_logic_1164.all;
-
-------------------------------------------------------------------------
--- Entity declaration for half adder
-------------------------------------------------------------------------
-entity half_adder is
-port (
-    b_i     : in  std_logic;
-    a_i     : in  std_logic;
-    carry_o : out std_logic;
-    sum_o   : out std_logic
-);
-end entity half_adder;
-
-------------------------------------------------------------------------
--- Architecture declaration for half adder
-------------------------------------------------------------------------
-architecture Behavioral of half_adder is
-begin
-    -- Logic functions for carry and sum outputs
-    -- WRITE YOUR CODE HERE
-end architecture Behavioral;
-```
-
-3. Use low-level gates `and`, `or`, `not`, etc. and write logic functions for Carry and Sum. Save all files in menu **File > Save All**.
-
-
-## 4 VHDL code for full adder
-
-1.  Create a new source file **Project > New Source... > VHDL Module**, name it `full_adder` and copy/paste the following code.
-
-```vhdl
-------------------------------------------------------------------------
---
--- Full adder.
--- Xilinx XC2C256-TQ144 CPLD, ISE Design Suite 14.7
---
--- Copyright (c) 2019-2020 Tomas Fryza
--- Dept. of Radio Electronics, Brno University of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-------------------------------------------------------------------------
-
-library ieee;
-use ieee.std_logic_1164.all;
-
-------------------------------------------------------------------------
--- Entity declaration for full adder
-------------------------------------------------------------------------
-entity full_adder is
-port (
-    carry_i : in  std_logic;
-    b_i     : in  std_logic;
-    a_i     : in  std_logic;
-    carry_o : out std_logic;
-    sum_o   : out std_logic
-);
-end entity full_adder;
-
-------------------------------------------------------------------------
--- Architecture declaration for full adder
-------------------------------------------------------------------------
-architecture Behavioral of full_adder is
-    -- Internal signals between two half adders
-    signal s_carry0, s_carry1, s_sum0 : std_logic;
+architecture Behavioral of hex_7seg is
 begin
 
-    --------------------------------------------------------------------
-    -- Sub-blocks of two half_adder entities
-    HALF_ADDER_0 : entity work.half_adder
-    port map (
-        -- <component_signal> => <actual_signal>,
-        -- <component_signal> => <actual_signal>,
-        -- <other signals>...
-        -- WRITE YOUR CODE HERE
-    );
+    p_7seg_decoder : process(hex_i)
+    begin
+        case hex_i is
+            when "0000" =>
+                seg_o <= "0000001";     -- 0
+            when "0001" =>
+                seg_o <= "1001111";     -- 1
+            when "0010" =>
+                seg_o <= "0010010";     -- 2
+            when "0011" =>
+                seg_o <= "0000110";     -- 3
+            when "0100" =>
+                seg_o <= "1001100";     -- 4
+            when "0101" =>
+                seg_o <= "0100100";     -- 5
+            when "0110" =>
+                seg_o <= "0100000";     -- 6
+            when "0111" =>
+                seg_o <= "0001111";     -- 7
+            when "1000" =>
+                seg_o <= "0000000";     -- 8
+            when "1001" =>
+                seg_o <= "0000100";     -- 9
+            when "1010" =>
+                seg_o <= "0001000";     -- A (10)
+            when "1011" =>
+                seg_o <= "1100000";     -- B (11)
+            when "1100" =>
+                seg_o <= "0110001";     -- C (12)
+            when "1101" =>
+                seg_o <= "1000010";     -- D (13)
+            when "1110" =>
+                seg_o <= "0110000";     -- E (14)
+            when others =>
+                seg_o <= "0111000";     -- F (15)
+        end case;
+    end process p_7seg_decoder;
 
-    HALF_ADDER_1 : entity work.half_adder
-    port map (
-        -- WRITE YOUR CODE HERE
-    );
-
-    -- Output carry
-    -- WRITE YOUR CODE HERE
-
-end architecture Behavioral;
+end Behavioral;
 ```
 
-2. A full adder can be implemented by two half adders and one OR gate. Follow the logic diagram of [Satvik Ramaprasad](https://circuitverse.org/users/3/projects/247) and design a full adder.
-
-    > If top level module in Xilinx ISE has not changed automatically, do it manually: right click to **full_adder - Behavioral (full_adder.vhd)** line and select **Set as Top Module**.
-    >
-
-3. Simulate design `full_adder` and test all input combinations according to the [tutorial](https://github.com/tomas-fryza/Digital-electronics-1/wiki/How-to-Simulate-Your-Design-in-ISE).
-
-4. In menu **Tools > Schematic Viewer > RTL...** select **Start with a schematic of top-level block** and check the hierarchical structure of the module.
-
-
-## 5 Top level implementation of 4-bit adder
-
-1. Create a new source file **Project > New Source... > VHDL Module**, name it `top` and copy/paste the following code template.
-
-    > If top level module in Xilinx ISE has not changed automatically, do it manually: right click to **top - Behavioral (top.vhd)** line and select **Set as Top Module**.
-    >
+#### Testbench code (tb_hex_7seg.vhd)
 
 ```vhdl
-------------------------------------------------------------------------
---
--- Implementation of 4-bit adder.
--- Xilinx XC2C256-TQ144 CPLD, ISE Design Suite 14.7
---
--- Copyright (c) 2019-2020 Tomas Fryza
--- Dept. of Radio Electronics, Brno University of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-------------------------------------------------------------------------
+p_stimulus : process
+begin
+    -- Report a note at the begining of stimulus process
+    report "Stimulus process started. ---------------------------------------" severity note;
+    
+    -- TEST 0
+    report "Testing 0 ..." severity note;
+    s_hex_i <= "0000";
+    wait for 10 ns;
+    assert (s_seg_o = "0000001")
+    report "Test failed for input combination: 0" severity error;
+    
+    -- TEST 1
+    report "Testing 1 ..." severity note;
+    s_hex_i <= "0001";
+    wait for 10 ns;
+    assert (s_seg_o = "1001111")
+    report "Test failed for input combination: 1" severity error; 
+    
+    -- TEST 2
+    report "Testing 2 ..." severity note;
+    s_hex_i <= "0010";
+    wait for 10 ns;
+    assert (s_seg_o = "0010010")
+    report "Test failed for input combination: 2" severity error; 
+    
+    -- TEST 3
+    report "Testing 3 ..." severity note;
+    s_hex_i <= "0011";
+    wait for 10 ns;
+    assert (s_seg_o = "0000110")
+    report "Test failed for input combination: 3" severity error; 
+    
+    -- TEST 4
+    report "Testing 4 ..." severity note;
+    s_hex_i <= "0100";
+    wait for 10 ns;
+    assert (s_seg_o = "1001100")
+    report "Test failed for input combination: 4" severity error; 
+    
+    -- TEST 5
+    report "Testing 5 ..." severity note;
+    s_hex_i <= "0101";
+    wait for 10 ns;
+    assert (s_seg_o = "0100100")
+    report "Test failed for input combination: 5" severity error; 
+    
+    -- TEST 6
+    report "Testing 6 ..." severity note;
+    s_hex_i <= "0110";
+    wait for 10 ns;
+    assert (s_seg_o = "0100000")
+    report "Test failed for input combination: 6" severity error; 
+    
+    -- TEST 7
+    report "Testing 7 ..." severity note;
+    s_hex_i <= "0111";
+    wait for 10 ns;
+    assert (s_seg_o = "0001111")
+    report "Test failed for input combination: 7" severity error; 
+    
+    -- TEST 8
+    report "Testing 8 ..." severity note;
+    s_hex_i <= "1000";
+    wait for 10 ns;
+    assert (s_seg_o = "0000000")
+    report "Test failed for input combination: 8" severity error; 
+    
+    -- TEST 9
+    report "Testing 9 ..." severity note;
+    s_hex_i <= "1001";
+    wait for 10 ns;
+    assert (s_seg_o = "0000100")
+    report "Test failed for input combination: 9" severity error; 
+    
+    -- TEST 10 (A)
+    report "Testing 10 ..." severity note;
+    s_hex_i <= "1010";
+    wait for 10 ns;
+    assert (s_seg_o = "0001000")
+    report "Test failed for input combination: 10" severity error; 
+    
+    -- TEST 11 (B)
+    report "Testing 11 ..." severity note;
+    s_hex_i <= "1011";
+    wait for 10 ns;
+    assert (s_seg_o = "1100000")
+    report "Test failed for input combination: 11" severity error; 
+    
+    -- TEST 12 (C)
+    report "Testing 12 ..." severity note;
+    s_hex_i <= "1100";
+    wait for 10 ns;
+    assert (s_seg_o = "0110001")
+    report "Test failed for input combination: 12" severity error; 
+    
+    -- TEST 13 (D)
+    report "Testing 13 ..." severity note;
+    s_hex_i <= "1101";
+    wait for 10 ns;
+    assert (s_seg_o = "1000010")
+    report "Test failed for input combination: 13" severity error; 
+    
+    -- TEST 14 (E)
+    report "Testing 14 ..." severity note;
+    s_hex_i <= "1110";
+    wait for 10 ns;
+    assert (s_seg_o = "0110000")
+    report "Test failed for input combination: 14" severity error;
+    
+    -- TEST 15 (F)
+    report "Testing 15 ..." severity note;
+    s_hex_i <= "1111";
+    wait for 10 ns;
+    assert (s_seg_o = "0111000")
+    report "Test failed for input combination: 15" severity error;      
+    
+    -- Report a note at the end of stimulus process
+    report "Stimulus process finished. ---------------------------------------" severity note;
+    wait;       
+end process p_stimulus;
+```
 
-library ieee;
-use ieee.std_logic_1164.all;
+#### Simulated waveform 
 
-------------------------------------------------------------------------
--- Entity declaration for top level
-------------------------------------------------------------------------
+
+
+### Top (top.vhd)
+
+```vhdl
+    ----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 03/03/2021 09:54:21 AM
+-- Design Name: 
+-- Module Name: top - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
 entity top is
-port (
-    SW0_CPLD   : in  std_logic;       -- Input A
-    SW1_CPLD   : in  std_logic;
-    SW2_CPLD   : in  std_logic;
-    SW3_CPLD   : in  std_logic;
-    SW8_CPLD   : in  std_logic;       -- Input B
-    SW9_CPLD   : in  std_logic;
-    SW10_CPLD  : in  std_logic;
-    SW11_CPLD  : in  std_logic;
-    disp_seg_o : out std_logic_vector(7-1 downto 0);
-    disp_dig_o : out std_logic_vector(4-1 downto 0)
-);
-end entity top;
+    Port (
+        SW  :   in  std_logic_vector(4 - 1 downto 0);
+        LED :   out std_logic_vector(16 - 1 downto 0);
+        
+        CA  :   out std_logic;
+        CB  :   out std_logic;
+        CC  :   out std_logic;
+        CD  :   out std_logic;
+        CE  :   out std_logic;
+        CF  :   out std_logic;
+        CG  :   out std_logic;
+        
+        AN  :   out std_logic_vector(8 - 1 downto 0)
+    );
+end top;
 
-------------------------------------------------------------------------
--- Architecture declaration for top level
-------------------------------------------------------------------------
 architecture Behavioral of top is
-    signal s_dataA, s_dataB : std_logic_vector(4-1 downto 0);
-    signal s_carry0, s_carry1, s_carry2 : std_logic;
-    signal s_result : std_logic_vector(4-1 downto 0);
-    signal s_carryOut : std_logic;
+    signal  s_seg_o :   std_logic_vector(7 - 1 downto 0);  
 begin
+    -- Instance (copy) of hex_7seg entity
+    hex2seg : entity work.hex_7seg
+        port map(
+            hex_i       => SW,
+            seg_o       => s_seg_o
+        );
 
-    -- Combine two 4-bit inputs to internal signals s_dataA and s_dataB
-    -- WRITE YOUR CODE HERE
+    -- Connect one common anode to 3.3V
+    AN  <= b"1111_1110";
+    
+    CA  <= s_seg_o(6);
+    CB  <= s_seg_o(5);
+    CC  <= s_seg_o(4);
+    CD  <= s_seg_o(3);
+    CE  <= s_seg_o(2);
+    CF  <= s_seg_o(1);
+    CG  <= s_seg_o(0);
+    
+    LED(15 downto 9)    <= not s_seg_o;
 
+    -- Display input value LED
+    LED(3 downto 0)     <= SW;
+    
+    -- Turn LED(4) on if input value is equal to 0, ie "0000"
+    LED(4)              <= '1' when (SW = "0000") else '0';
+    
+    -- Turn LED(5) on if input value is greater than 9
+    LED(5)              <= '1' when (unsigned(SW) > 9) else '0';
+    
+    -- Turn LED(6) on if input value is odd, ie 1, 3, 5, ...
+    LED(6)              <= '1' when (unsigned(SW) mod 2 = 1) else '0';
+    
+    -- Turn LED(7) on if input value is a power of two, ie 1, 2, 4, or 8
+    LED(7)              <= '1' when (SW = "0001" or SW = "0010" or SW = "0100" or SW = "1000") else '0';
+    
+end Behavioral;
 
-    --------------------------------------------------------------------
-    -- Sub-blocks of four full_adders
-    FULL_ADDER_0 : entity work.full_adder
-    port map (
-        -- <component_signal> => <actual_signal>,
-        -- <component_signal> => <actual_signal>,
-        -- <other signals>...
-        -- WRITE YOUR CODE HERE
-    );
-
-    FULL_ADDER_1 : entity work.full_adder
-    port map (
-        -- WRITE YOUR CODE HERE
-    );
-
-    FULL_ADDER_2 : entity work.full_adder
-    port map (
-        -- WRITE YOUR CODE HERE
-    );
-
-    FULL_ADDER_3 : entity work.full_adder
-    port map (
-        -- WRITE YOUR CODE HERE
-    );
-
-
-    --------------------------------------------------------------------
-    -- Sub-block of hex_to_7seg entity
-    HEX2SSEG : entity work.hex_to_7seg
-    port map (
-        -- WRITE YOUR CODE HERE
-    );
-
-    -- Select display position
-    disp_dig_o <= "1110";
-
-
-    -- Show carry output bit on Coolrunner-II LED
-    -- WRITE YOUR CODE HERE
-
-    -- Show two 4-bit inputs on CPLD expansion LEDs
-    -- WRITE YOUR CODE HERE
-
-end architecture Behavioral;
 ```
 
-2. Copy `hex_to_7seg.vhd` and `coolrunner.ucf` files from previous lab to current working folder and add them to the project: **Project > Add Source...**. In constraints file comment/uncomment all inputs/outputs you need in this top level design.
+### LED[7:4] truth table
 
-    Create a new constraints file with file name `cpld_board` and copy/paste the following code. The file contains pin assignments of input/output devices on CPLD expansion board. Again, comment/uncomment all inputs/outputs you need in this top level design.
+| **Hex** | **Inputs** | **LED[7]** | **LED[6]** | **LED[5]** | **LED[4]** |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| 0 | 0000 | 0 | 0 | 0 | 1 |
+| 1 | 0001 | 1 | 1 | 0 | 0 |
+| 2 | 0010 | 1 | 0 | 1 | 0 |
+| 3 | 0011 | 0 | 1 | 0 | 0 |
+| 4 | 0100 | 1 | 0 | 0 | 0 |
+| 5 | 0101 | 0 | 1 | 0 | 0 |
+| 6 | 0110 | 0 | 0 | 0 | 0 |
+| 7 | 0111 | 0 | 1 | 0 | 0 |
+| 8 | 1000 | 1 | 0 | 0 | 0 |
+| 9 | 1001 | 0 | 1 | 0 | 0 |
+| A | 1010 | 0 | 0 | 1 | 0 |
+| b | 1011 | 0 | 1 | 1 | 0 |
+| C | 1100 | 0 | 0 | 1 | 0 |
+| d | 1101 | 0 | 1 | 1 | 0 |
+| E | 1110 | 0 | 0 | 1 | 0 |
+| F | 1111 | 0 | 1 | 1 | 0 |
 
+![Waveform of simulation](img/wf2.PNG)
 
-```bash
-#-----------------------------------------------------------------------
-#
-# Constraints file with pin assignments.
-# CPLD expansion board, ISE Design Suite 14.7
-#
-# Copyright (c) 2019-2020 Tomas Fryza
-# Dept. of Radio Electronics, Brno University of Technology, Czechia
-# This work is licensed under the terms of the MIT license.
-#
-#-----------------------------------------------------------------------
+### Test on my Nexys 4 DDR
 
-#-----------------------------------------------------------------------
-# Buttons & switches
-# 16 shared push buttons and slide switches
-#-----------------------------------------------------------------------
-#
-# 15  ...  8       7  ...  0
-# +-+     +-+     +-+     +-+
-# | | ... | |     | | ... | | H
-# |.|     |.|     |.|     |.| L
-# +-+     +-+     +-+     +-+
-#
-#  15  11  7   3
-#  o   o   o   o   H: pressed
-#  o   o   o   o   L: released
-#  o   o   o   o
-#  o   o   o   o
-#  12  8   4   0
-#
-#NET SW15_CPLD           LOC = P9;
-#NET SW14_CPLD           LOC = P10;
-#NET SW13_CPLD           LOC = P6;
-#NET SW12_CPLD           LOC = P7;
-#NET SW11_CPLD           LOC = P4;
-#NET SW10_CPLD           LOC = P5;
-#NET SW9_CPLD            LOC = P2;
-#NET SW8_CPLD            LOC = P3;
-#NET SW7_CPLD            LOC = P140;
-#NET SW6_CPLD            LOC = P142;
-#NET SW5_CPLD            LOC = P138;
-#NET SW4_CPLD            LOC = P139;
-#NET SW3_CPLD            LOC = P135;
-#NET SW2_CPLD            LOC = P136;
-#NET SW1_CPLD            LOC = P133;
-#NET SW0_CPLD            LOC = P134;
-
-#-----------------------------------------------------------------------
-# 16 discrete LEDs
-#-----------------------------------------------------------------------
-#
-# 15 ... 12 11 ... 8
-#  * * * *   * * * *   H: turn LED on
-#  * * * *   * * * *   L: turn LED off
-#  7 ... 4   3 ... 0
-#
-#NET LD15_CPLD           LOC = P118;
-#NET LD14_CPLD           LOC = P119;
-#NET LD13_CPLD           LOC = P116;
-#NET LD12_CPLD           LOC = P117;
-#NET LD11_CPLD           LOC = P114;
-#NET LD10_CPLD           LOC = P115;
-#NET LD9_CPLD            LOC = P112;
-#NET LD8_CPLD            LOC = P113;
-#NET LD7_CPLD            LOC = P103;
-#NET LD6_CPLD            LOC = P104;
-#NET LD5_CPLD            LOC = P101;
-#NET LD4_CPLD            LOC = P102;
-#NET LD3_CPLD            LOC = P98;
-#NET LD2_CPLD            LOC = P100;
-#NET LD1_CPLD            LOC = P96;
-#NET LD0_CPLD            LOC = P97;
-```
-
-3. Use sub-blocks of hexadecimal to seven segment decoder, [four sub-blocks of 1-bit full adders](https://circuitverse.org/users/15916/projects/55095), interconnect all blocks, use slide switches/LEDs on CPLD expansion boards, seven-segment display on CoolRunner board, and implement 4-bit adder.
-
-4. In menu **Tools > Schematic Viewer > RTL...** select **Start with a schematic of top-level block** and check the hierarchical structure of the module.
-
-5. In menu **Project > Design Summary/Reports** check **CPLD Fitter Report (Text)** for implemented functions in section `********** Mapped Logic **********`.
-
-
-## 6 Clean project and synchronize git
-
-1. In Xilinx ISE, clean up all generated files in menu **Project > Cleanup Project Files...** and close the project using **File > Close Project**.
-
-    > **Warning:** In any file manager, make sure the project folder does not contain any **large** (gigabyte) files. These can be caused by incorrect simulation in ISim. Delete such files.
-    >
-
-2. Use `cd ..` command in Linux terminal and change working directory to `Digital-electronics-1`. Then use [git commands](https://github.com/joshnh/Git-Commands) to add, commit, and push all local changes to your remote repository. Check the repository at GitHub web page for changes.
-
-    ```bash
-    $ pwd
-    /home/lab661/Documents/your-name/Digital-electronics-1/Labs/04-adder
-
-    $ cd ..
-    $ cd ..
-    $ pwd
-    /home/lab661/Documents/your-name/Digital-electronics-1
-
-    $ git status
-    $ git add <your-modified-files>
-    $ git status
-    $ git commit -m "[LAB] Adding 04-adder lab"
-    $ git status
-    $ git push
-    $ git status
-    ```
-
-
-## Experiments on your own
-
-1. Add one control line `Subtract` and create a combined [4-bit adder-subtractor](https://circuitverse.org/users/15916/projects/55119). The control line `Subtract` holds a binary value of either 0 or 1 which determines that the operation being carried out is addition or subtraction. Note, two's complement form is used to create an opposite number.
-
-2. Complete your `README.md` file with notes and screenshots from simulation and implementation.
