@@ -1,15 +1,7 @@
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a51d6b38392f40d4b143c2f19c0dc349 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_hex_7seg_behav xil_defaultlib.tb_hex_7seg -log elaborate.log 
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a51d6b38392f40d4b143c2f19c0dc349 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_top_behav xil_defaultlib.tb_top -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling architecture behavioral of entity xil_defaultlib.hex_7seg [hex_7seg_default]
-Compiling architecture behavioral of entity xil_defaultlib.tb_hex_7seg
-Built simulation snapshot tb_hex_7seg_behav
+ERROR: [VRFC 10-3311] expression has 8 elements ; formal 'led' expects 16 [C:/Users/Kocum/Desktop/DE1/Kocum/Digital-electronics-1/Labs/04-segment/display/display.srcs/sim_1/new/tb_top.vhd:45]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit tb_top in library work failed.
