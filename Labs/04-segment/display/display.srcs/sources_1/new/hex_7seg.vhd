@@ -67,17 +67,17 @@ begin
                 when "1001" =>
                     seg_o <= "0000100";     -- 9
                 when "1010" =>
-                    seg_o <= "0001000";     -- A (10)
+                    seg_o <= "0001000";     -- A 
                 when "1011" =>
-                    seg_o <= "1100000";     -- B (11)
+                    seg_o <= "1100000";     -- B 
                 when "1100" =>
-                    seg_o <= "0110001";     -- C (12)
+                    seg_o <= "0110001";     -- C 
                 when "1101" =>
-                    seg_o <= "1000010";     -- D (13)
+                    seg_o <= "1000010";     -- D 
                 when "1110" =>
-                    seg_o <= "0110000";     -- E (14)
+                    seg_o <= "0110000";     -- E 
                 when others =>
-                    seg_o <= "0111000";     -- F (15)
+                    seg_o <= "0111000";     -- F 
             end case;
         end process p_7seg_decoder;
 
