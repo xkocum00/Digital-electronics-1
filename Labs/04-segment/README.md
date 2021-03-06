@@ -30,7 +30,7 @@ Decoder truth table for common anode 7-segment display.
 
 ### 2.Seven-segment display decoder
 
-#### Arcitecture code (hex_7seg.vhd)
+#### Architecture code (hex_7seg.vhd)
 
 ```vhdl
 
