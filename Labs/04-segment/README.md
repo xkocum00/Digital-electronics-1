@@ -32,26 +32,6 @@ Decoder truth table for common anode 7-segment display.
 #### Arcitecture code (hex_7seg.vhd)
 
 ```vhdl
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 05.03.2021 12:59:38
--- Design Name: 
--- Module Name: hex_7seg - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -124,175 +104,43 @@ end Behavioral;
 #### Testbench code (tb_hex_7seg.vhd)
 
 ```vhdl
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 06.03.2021 09:36:19
--- Design Name: 
--- Module Name: tb_hex_7seg - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
-entity tb_hex_7seg is
---  Port ( );
-end tb_hex_7seg;
-
-architecture Behavioral of tb_hex_7seg is
-    signal s_hex            : std_logic_vector(4 - 1 downto 0);
-    signal s_seg            : std_logic_vector(7 - 1 downto 0);
-
-    
-begin
-
- -- Connecting testbench signals with comparator_4bit entity (Unit Under Test)
-    uut_hex_7seg : entity work.hex_7seg
-        port map(
-            hex_i           => s_hex,
-            seg_o           => s_seg
-        );
-
-
-
-    p_stimulus : process
+p_stimulus : process
     begin
         -- Report a note at the begining of stimulus process
         report "Stimulus process started. ---------------------------------------" severity note;
         
-        -- TEST 0
-        report "Testing 0 ..." severity note;
-        s_hex <= "0000";
-        wait for 10 ns;
-        assert (s_seg = "0000001")
-        report "Test failed for input combination: 0" severity error;
+        s_hex <= "0000";    wait for 10 ns;       -- 0
         
-        -- TEST 1
-        report "Testing 1 ..." severity note;
-        s_hex <= "0001";
-        wait for 10 ns;
-        assert (s_seg = "1001111")
-        report "Test failed for input combination: 1" severity error; 
+        s_hex <= "0001";    wait for 10 ns;       -- 1
         
-        -- TEST 2
-        report "Testing 2 ..." severity note;
-        s_hex <= "0010";
-        wait for 10 ns;
-        assert (s_seg = "0010010")
-        report "Test failed for input combination: 2" severity error; 
+        s_hex <= "0010";    wait for 10 ns;       -- 2
         
-        -- TEST 3
-        report "Testing 3 ..." severity note;
-        s_hex <= "0011";
-        wait for 10 ns;
-        assert (s_seg = "0000110")
-        report "Test failed for input combination: 3" severity error; 
+        s_hex <= "0011";    wait for 10 ns;       -- 3
         
-        -- TEST 4
-        report "Testing 4 ..." severity note;
-        s_hex <= "0100";
-        wait for 10 ns;
-        assert (s_seg = "1001100")
-        report "Test failed for input combination: 4" severity error; 
+        s_hex <= "0100";    wait for 10 ns;       -- 4
         
-        -- TEST 5
-        report "Testing 5 ..." severity note;
-        s_hex <= "0101";
-        wait for 10 ns;
-        assert (s_seg = "0100100")
-        report "Test failed for input combination: 5" severity error; 
+        s_hex <= "0101";    wait for 10 ns;       -- 5
         
-        -- TEST 6
-        report "Testing 6 ..." severity note;
-        s_hex <= "0110";
-        wait for 10 ns;
-        assert (s_seg = "0100000")
-        report "Test failed for input combination: 6" severity error; 
+        s_hex <= "0110";    wait for 10 ns;       -- 6
         
-        -- TEST 7
-        report "Testing 7 ..." severity note;
-        s_hex <= "0111";
-        wait for 10 ns;
-        assert (s_seg = "0001111")
-        report "Test failed for input combination: 7" severity error; 
+        s_hex <= "0111";    wait for 10 ns;       -- 7
         
-        -- TEST 8
-        report "Testing 8 ..." severity note;
-        s_hex <= "1000";
-        wait for 10 ns;
-        assert (s_seg = "0000000")
-        report "Test failed for input combination: 8" severity error; 
+        s_hex <= "1000";    wait for 10 ns;       -- 8
         
-        -- TEST 9
-        report "Testing 9 ..." severity note;
-        s_hex <= "1001";
-        wait for 10 ns;
-        assert (s_seg = "0000100")
-        report "Test failed for input combination: 9" severity error; 
+        s_hex <= "1001";    wait for 10 ns;       -- 9
         
-        -- TEST 10 (A)
-        report "Testing 10 ..." severity note;
-        s_hex <= "1010";
-        wait for 10 ns;
-        assert (s_seg = "0001000")
-        report "Test failed for input combination: 10" severity error; 
+        s_hex <= "1010";    wait for 10 ns;       -- A
         
-        -- TEST 11 (B)
-        report "Testing 11 ..." severity note;
-        s_hex <= "1011";
-        wait for 10 ns;
-        assert (s_seg = "1100000")
-        report "Test failed for input combination: 11" severity error; 
+        s_hex <= "1011";    wait for 10 ns;       -- B
         
-        -- TEST 12 (C)
-        report "Testing 12 ..." severity note;
-        s_hex <= "1100";
-        wait for 10 ns;
-        assert (s_seg = "0110001")
-        report "Test failed for input combination: 12" severity error; 
+        s_hex <= "1100";    wait for 10 ns;       -- C
         
-        -- TEST 13 (D)
-        report "Testing 13 ..." severity note;
-        s_hex <= "1101";
-        wait for 10 ns;
-        assert (s_seg = "1000010")
-        report "Test failed for input combination: 13" severity error; 
+        s_hex <= "1101";    wait for 10 ns;       -- D
         
-        -- TEST 14 (E)
-        report "Testing 14 ..." severity note;
-        s_hex <= "1110";
-        wait for 10 ns;
-        assert (s_seg = "0110000")
-        report "Test failed for input combination: 14" severity error;
+        s_hex <= "1110";    wait for 10 ns;       -- E
         
-        -- TEST 15 (F)
-        report "Testing 15 ..." severity note;
-        s_hex <= "1111";
-        wait for 10 ns;
-        assert (s_seg = "0111000")
-        report "Test failed for input combination: 15" severity error;      
+        s_hex <= "1111";    wait for 10 ns;       -- F      
         
         -- Report a note at the end of stimulus process
         report "Stimulus process finished. ---------------------------------------" severity note;
@@ -308,97 +156,9 @@ end Behavioral;
 ### Top (top.vhd)
 
 ```vhdl
-    ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 03/03/2021 09:54:21 AM
--- Design Name: 
--- Module Name: top - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use ieee.numeric_std.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
-entity top is
-    Port (
-        SW  :   in  std_logic_vector(4 - 1 downto 0);
-        LED :   out std_logic_vector(16 - 1 downto 0);
-        
-        CA  :   out std_logic;
-        CB  :   out std_logic;
-        CC  :   out std_logic;
-        CD  :   out std_logic;
-        CE  :   out std_logic;
-        CF  :   out std_logic;
-        CG  :   out std_logic;
-        
-        AN  :   out std_logic_vector(8 - 1 downto 0)
-    );
-end top;
-
-architecture Behavioral of top is
-    signal  s_seg_o :   std_logic_vector(7 - 1 downto 0);  
-begin
-    -- Instance (copy) of hex_7seg entity
-    hex2seg : entity work.hex_7seg
-        port map(
-            hex_i       => SW,
-            seg_o       => s_seg_o
-        );
-
-    -- Connect one common anode to 3.3V
-    AN  <= b"1111_1110";
     
-    CA  <= s_seg_o(6);
-    CB  <= s_seg_o(5);
-    CC  <= s_seg_o(4);
-    CD  <= s_seg_o(3);
-    CE  <= s_seg_o(2);
-    CF  <= s_seg_o(1);
-    CG  <= s_seg_o(0);
     
-    LED(15 downto 9)    <= not s_seg_o;
-
-    -- Display input value LED
-    LED(3 downto 0)     <= SW;
     
-    -- Turn LED(4) on if input value is equal to 0, ie "0000"
-    LED(4)              <= '1' when (SW = "0000") else '0';
-    
-    -- Turn LED(5) on if input value is greater than 9
-    LED(5)              <= '1' when (unsigned(SW) > 9) else '0';
-    
-    -- Turn LED(6) on if input value is odd, ie 1, 3, 5, ...
-    LED(6)              <= '1' when (unsigned(SW) mod 2 = 1) else '0';
-    
-    -- Turn LED(7) on if input value is a power of two, ie 1, 2, 4, or 8
-    LED(7)              <= '1' when (SW = "0001" or SW = "0010" or SW = "0100" or SW = "1000") else '0';
-    
-end Behavioral;
-
 ```
 
 ### LED[7:4] truth table
