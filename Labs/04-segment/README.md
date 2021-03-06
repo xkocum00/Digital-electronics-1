@@ -4,6 +4,7 @@
 
 ### Preparation tasks:
 ![Schematic of used HW](IMAGES/schematic.png)
+
 Decoder truth table for common anode 7-segment display.
 
 | **Hex** | **Inputs** | **A** | **B** | **C** | **D** | **E** | **F** | **G** |
