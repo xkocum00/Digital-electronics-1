@@ -28,7 +28,7 @@ Decoder truth table for common anode 7-segment display.
 
 
 
-### 2.Seven-segment display decoder
+## 2.Seven-segment display decoder
 
 #### Architecture code (hex_7seg.vhd)
 
@@ -142,7 +142,7 @@ p_stimulus : process
     
     
 ```
-
+## Part 3: LED(7:4) indicators
 ### LED[7:4] truth table
 
 | **Hex** | **Inputs** | **LED[7]** | **LED[6]** | **LED[5]** | **LED[4]** |
