@@ -32,26 +32,6 @@ Decoder truth table for common anode 7-segment display.
 #### Arcitecture code (hex_7seg.vhd)
 
 ```vhdl
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 05.03.2021 12:59:38
--- Design Name: 
--- Module Name: hex_7seg - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
