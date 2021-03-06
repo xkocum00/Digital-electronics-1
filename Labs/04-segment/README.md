@@ -115,11 +115,9 @@ p_stimulus : process
         
         s_hex <= "1111";    wait for 10 ns;       -- F      
         
-        -- Report a note at the end of stimulus process
-        report "Stimulus process finished. ---------------------------------------" severity note;
-        wait;       
+         report "Stimulus process finished" severity note;
+        wait;
     end process p_stimulus;
-end Behavioral;
 ```
 
 #### Simulated waveform 
