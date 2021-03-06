@@ -34,9 +34,6 @@ Decoder truth table for common anode 7-segment display.
 
 ```vhdl
 
-architecture Behavioral of hex_7seg is
-
-begin
     p_7seg_decoder : process(hex_i)
         begin
             case hex_i is
@@ -74,10 +71,6 @@ begin
                     seg_o <= "0111000";     -- F 
             end case;
         end process p_7seg_decoder;
-
-
-
-end Behavioral;
 
 ```
 
