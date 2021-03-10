@@ -148,7 +148,6 @@ p_stimulus : process
 ```vhdl
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.numeric_std.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -160,46 +159,42 @@ use ieee.numeric_std.ALL;
 --use UNISIM.VComponents.all;
 
 entity top is
-    Port (
-        SW  :   in  std_logic_vector(4 - 1 downto 0);
-        LED :   out std_logic_vector(16 - 1 downto 0);
-        
-        CA  :   out std_logic;
-        CB  :   out std_logic;
-        CC  :   out std_logic;
-        CD  :   out std_logic;
-        CE  :   out std_logic;
-        CF  :   out std_logic;
-        CG  :   out std_logic;
-        
-        AN  :   out std_logic_vector(8 - 1 downto 0)
+    Port ( SW : in STD_LOGIC_VECTOR (4 - 1  downto 0);
+           CA : out STD_LOGIC;
+           CB : out STD_LOGIC;
+           CC : out STD_LOGIC;
+           CD : out STD_LOGIC;
+           CE : out STD_LOGIC;
+           CF : out STD_LOGIC;
+           CG : out STD_LOGIC;
+           
+           LED : out STD_LOGIC_VECTOR (8 - 1  downto 0);
+           AN  : out STD_LOGIC_VECTOR (8 - 1  downto 0)
     );
+           
 end top;
 
 architecture Behavioral of top is
-    signal  s_seg_o :   std_logic_vector(7 - 1 downto 0);  
+
 begin
-    -- Instance (copy) of hex_7seg entity
-    hex2seg : entity work.hex_7seg
+
+      hex2seg : entity work.hex_7seg
         port map(
-            hex_i       => SW,
-            seg_o       => s_seg_o
-        );
+          hex_i => SW,
+          seg_o(6) => CA,
+          seg_o(5) => CB,
+          seg_o(4) => CC,
+          seg_o(3) => CD,
+          seg_o(2) => CE,
+          seg_o(1) => CF,
+          seg_o(0) => CG
+          );
+          
+       --connect one common anode to 3.3 V
+        AN <= b"1111_0111";
+        
+       -- display input value
 
-    -- Connect one common anode to 3.3V
-    AN  <= b"1111_1110";
-    
-    CA  <= s_seg_o(6);
-    CB  <= s_seg_o(5);
-    CC  <= s_seg_o(4);
-    CD  <= s_seg_o(3);
-    CE  <= s_seg_o(2);
-    CF  <= s_seg_o(1);
-    CG  <= s_seg_o(0);
-    
-    LED(15 downto 9)    <= not s_seg_o;
-
-    -- Display input value LED
     LED(3 downto 0)     <= SW;
     
     -- Turn LED(4) on if input value is equal to 0, ie "0000"
@@ -212,8 +207,10 @@ begin
     LED(6)              <= '1' when (unsigned(SW) mod 2 = 1) else '0';
     
     -- Turn LED(7) on if input value is a power of two, ie 1, 2, 4, or 8
-    LED(7)              <= '1' when (SW = "0001" or SW = "0010" or SW = "0100" or SW = "1000") else '0';
-    
+    LED(7)              <= '1' when (SW = "0001" or SW = "0010" or SW = "0100" or SW = "1000") else '0';   
+          
+
+
 end Behavioral;
 
 ```
