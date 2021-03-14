@@ -35,15 +35,11 @@ p_cnt_up_down : process(clk)
 
             elsif (en_i = '1') then       -- Test if counter is enabled
 
-
                 if (cnt_up_i = '1') then
-                    s_cnt_local <=  s_cnt_local +1;
-                else    s_cnt_local <= s_cnt_local -1;
+                     s_cnt_local <=  s_cnt_local +1;
+                else    
+                     s_cnt_local <= s_cnt_local -1;
                 end if; 
-
-
-                s_cnt_local <= s_cnt_local + 1;
-
 
             end if;
         end if;
