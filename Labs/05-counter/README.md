@@ -143,35 +143,7 @@ begin
             cnt_up_i    => SW(0),
             cnt_o       => s_cnt
         );
-    --------------------------------------------------------------------
-    -- Instance (copy) of clock_enable entity           16BIT COunter
-    clk_en1 : entity work.clock_enable
-        generic map(
-                g_MAX   => 1000000
-        )
-        port map(
-             clk    =>  CLK100MHZ,
-             reset  =>  BTNC,
-             ce_o   =>  s_en16
-        );
-
-    --------------------------------------------------------------------
-    --------------------------------------------------------------------
-    -- Instance (copy) of cnt_up_down entity
-    Counter_16_BIT : entity work.cnt_up_down
-        generic map(
-            g_CNT_WIDTH =>  16
-        )
-        port map(
-            clk         => CLK100MHZ,  
-            reset       => BTNR,
-            en_i        => s_en16,    
-            cnt_up_i    => SW(1),
-            cnt_o       => s_cnt16
-        );
-    -- Display input value on LEDs
-    LED(16 - 1 downto 0) <= s_cnt16;
-
+        
     --------------------------------------------------------------------
     -- Instance (copy) of hex_7seg entity
     hex7seg : entity work.hex_7seg
