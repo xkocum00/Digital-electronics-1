@@ -88,6 +88,25 @@ p_reset_gen : process
 ## Top level. Submit:
 ### Listing of VHDL code from source file top.vhd with all instantiations for the 4-bit bidirectional counter.
 ```vhdl
+entity top is
+    Port ( 
+             CLK100MHZ :    in STD_LOGIC;
+             BTNC :         in STD_LOGIC;
+             BTNL :         in STD_LOGIC;
+             BTNR :         in STD_LOGIC;
+             SW :           in STD_LOGIC_VECTOR (2 - 1 downto 0);
+             LED :          out STD_LOGIC_VECTOR (16 - 1  downto 0);
+             CA :           out STD_LOGIC;
+             CB :           out STD_LOGIC;
+             CC :           out STD_LOGIC;
+             CD :           out STD_LOGIC;
+             CE :           out STD_LOGIC;
+             CF :           out STD_LOGIC;
+             CG :           out STD_LOGIC;
+             AN :           out STD_LOGIC_VECTOR (8 - 1  downto 0)
+          );
+end top;
+
 architecture Behavioral of top is
     -- Internal clock enable
     signal s_en  : std_logic;
