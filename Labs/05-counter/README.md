@@ -1,10 +1,5 @@
 # LAB 05-counter
 
-
-### Link to GitHub repository
-[GitHub repository](https://github.com/amwellius/Digital-electronics-1)
-
-
 ## Part 1: Preparation tasks
 
 #### SCHEMA: <br/>
@@ -14,7 +9,7 @@
    SW0-SW4        <br/>
    7-seg Display  <br/>
    LED[0]-LED[7]  <br/>
-   Buttons BTNL, BTNR, BTNU, BTND, BTNC
+   Buttons: BTNL, BTNR, BTNU, BTND, BTNC
   
 
 ### Table with calculated values
