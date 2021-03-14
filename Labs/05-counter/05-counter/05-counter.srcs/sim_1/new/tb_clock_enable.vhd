@@ -25,7 +25,7 @@ end entity tb_clock_enable;
 ------------------------------------------------------------------------
 architecture testbench of tb_clock_enable is
 
-    constant c_MAX               : natural := 10;
+    constant c_MAX               : natural := 4;
     constant c_CLK_100MHZ_PERIOD : time    := 10 ns;
 
     --Local signals
@@ -67,11 +67,11 @@ begin
     p_reset_gen : process
     begin
         s_reset <= '0';
-        wait for 28 ns;
+        wait for 128 ns;
         
         -- Reset activated
         s_reset <= '1';
-        wait for 153 ns;
+        wait for 53 ns;
 
         -- Reset deactivated
         s_reset <= '0';
