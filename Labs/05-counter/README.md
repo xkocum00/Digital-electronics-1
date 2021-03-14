@@ -191,3 +191,5 @@ begin
 
 end architecture Behavioral;
 ```
+### Image of the top layer including both counters
+![ScreenShot](IMAGES/4.png)
