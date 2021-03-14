@@ -87,6 +87,6 @@ p_reset_gen : process
         wait;
     end process p_stimulus;
 ```
-
+![ScreenShot](IMAGES/3.png)
 
 
