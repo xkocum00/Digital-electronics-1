@@ -84,6 +84,9 @@ p_reset_gen : process
     end process p_stimulus;
 ```
 ![ScreenShot](IMAGES/3.png)
+
+## Top level. Submit:
+### Listing of VHDL code from source file top.vhd with all instantiations for the 4-bit bidirectional counter.
 ```vhdl
 architecture Behavioral of top is
     -- Internal clock enable
