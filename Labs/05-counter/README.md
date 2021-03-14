@@ -7,6 +7,8 @@
 
 ## Part 1: Preparation tasks
 
+#### SCHEMA: <br/>
+![ScreenShot](IMAGES/schematic.png)
 ### Figure or table with connection of push buttons on Nexys A7 board
    Using:         <br/>
    SW0-SW4        <br/>
@@ -14,9 +16,6 @@
    LED[0]-LED[7]  <br/>
    Buttons BTNL, BTNR, BTNU, BTND, BTNC
   
-   
-#### SCHEMA: <br/>
-![ScreenShot](IMAGES/schematic.png)
 
 ### Table with calculated values
 
