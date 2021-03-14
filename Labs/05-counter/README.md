@@ -13,11 +13,10 @@
    7-seg Display  <br/>
    LED[0]-LED[7]  <br/>
    Buttons BTNL, BTNR, BTNU, BTND, BTNC
-   Used Schema link: <br/>
-   (https://reference.digilentinc.com/reference/programmable-logic/nexys-a7/reference-manual) <br/>
+  
    
 #### SCHEMA: <br/>
-![ScreenShot](images/part1_0.png)
+![ScreenShot](IMAGES/schematic.png)
 
 ### Table with calculated values
 
