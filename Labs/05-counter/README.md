@@ -28,43 +28,9 @@
 | 500ms | 50 000 000 | `x"2FA_F080"` | `b"0010_1111_1010_1111_0000_1000_0000"` |
 | 1sec | 100 000 000 | `x"5F5_E100"` | `b"0101_1111_0101_1110_0001_0000_0000"` |
 
-## Part 2: VHDL code for clock enable
+## Part 2: Bidirectional counter. Submit:
 
-To drive another logic in the design (with slower clock), it is better to generate a **clock enable signal** instead of creating another clock domain (using clock dividers) that would cause timing issues or clock domain crossing problems such as metastability, data loss, and data incoherency.
 
-![Clock enable](Images/wavedrom_clock_enable.png)
-
-> The figure above was created in [WaveDrom](https://wavedrom.com/) digital timing diagram online tool. The figure source code is as follows (ticks -1, 10, 11 and 12 were manually adjusted afterwards):
->
-```javascript
-{
-  signal:
-  [
-    {name: "clk",  wave: 'P............'},
-    {name: "ce_o", wave: 'lhl........hl'},
-  ],
-  head:
-  {
-    tick: -1,
-  },
-  foot:
-  {
-    text:'g_MAX = 10',
-  },
-}
-```
-
-Perform the following steps to simulate the clock enable circuit.
-
-   1. Create a new Vivado RTL project `counter` in your `Labs/05-counter` working folder.
-   2. Create a VHDL source file `clock_enable` for the clock enable circuit.
-   3. Choose default board: `Nexys A7-50T`.
-   4. Open the [Clock enable circuit example](https://www.edaplayground.com/x/5LiJ) and copy/paste the `design.vhd` code to your `clock_enable.vhd` file. Take a look at the new parts of the VHDL source code, such as package for arithmetic operations, `generic` part, internal signal, and [synchronous process](https://github.com/tomas-fryza/Digital-electronics-1/wiki/Processes). **Generic** allows us to pass information into an entity and component. Since a generic cannot be modified inside the architecture, it is like a constant.
-   5. Create a simulation source `tb_clock_enable`, copy/paste the `testbench.vhd` code and run the simulation. Verify the meaning of the constant `c_MAX` and reset generation process.
-   
-   The default simulation run time is set to 1000&nbsp;ns in Vivado. You can change it in the menu **Tools > Settings...**
-
-![Specify simulation run time in Vivado](Images/screenshot_vivado_run_time.png)
 
 
 ## Part 3: VHDL code for bidirectional binary counter
