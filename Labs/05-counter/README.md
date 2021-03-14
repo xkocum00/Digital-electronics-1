@@ -1,50 +1,34 @@
-# Lab 5: Binary counter
-
-![Logo](../../logolink_eng.jpg)
-
-### Learning objectives
-
-The purpose of this laboratory exercise is to become familiar with the creation of sequential processes in VHDL, next to implement a clock enable signal to drive another logic with slower clock, and to design a binary counter.
-
-![Nexys A7 board](Images/nexys_a7_counter.jpg)
+# LAB 05-counter
 
 
-## Preparation tasks (done before the lab at home)
-
-The Nexys A7 board provides five push buttons for user applications. See schematic or reference manual of the Nexys A7 board and find out the connection of these push buttons, ie to which FPGA pins are connected and how (schema). What logic/voltage value do the buttons generate when not pressed and what value when the buttons are pressed?
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-Calculate how many periods of clock signal with frequency of 100&nbsp;MHz contain time intervals 2&nbsp;ms, 4&nbsp;ms, 10&nbsp;ms, 250&nbsp;ms, 500&nbsp;ms, and 1&nbsp;s. Write values in decimal, binary, and hexadecimal forms.
-
-   &nbsp; 
-   ![Clock period](Images/freq.png)
-   &nbsp;
-
-   | **Time interval** | **Number of clk periods** | **Number of clk periods in hex** | **Number of clk periods in binary** |
-   | :-: | :-: | :-: | :-: |
-   | 2&nbsp;ms | 200 000 | `x"3_0d40"` | `b"0011_0000_1101_0100_0000"` |
-   | 4&nbsp;ms |
-   | 10&nbsp;ms |
-   | 250&nbsp;ms |
-   | 500&nbsp;ms |
-   | 1&nbsp;sec | 100 000 000 | `x"5F5_E100"` | `b"0101_1111_0101_1110_0001_0000_0000"` |
+### Link to GitHub repository
+[GitHub repository](https://github.com/amwellius/Digital-electronics-1)
 
 
-## Part 1: Synchronize repositories and create a new folder
+## Part 1: Preparation tasks
 
-Run Git Bash (Windows) of Terminal (Linux), navigate to your working directory, and update local repository. Create a new working folder `Labs/05-counter` for this laboratory exercise.
+### Figure or table with connection of push buttons on Nexys A7 board
+   Using:         <br/>
+   SW0-SW4        <br/>
+   7-seg Display  <br/>
+   LED[0]-LED[7]  <br/>
+   Buttons BTNL, BTNR, BTNU, BTND, BTNC
+   Used Schema link: <br/>
+   (https://reference.digilentinc.com/reference/programmable-logic/nexys-a7/reference-manual) <br/>
+   
+#### SCHEMA: <br/>
+![ScreenShot](images/part1_0.png)
 
+### Table with calculated values
+
+| **Time interval** | **Number of clk periods** | **Number of clk periods in hex** | **Number of clk periods in binary** |
+| :-: | :-: | :-: | :-: |
+| 2ms | 200 000 | `x"3_0D40"` | `b"0011_0000_1101_0100_0000"` |
+| 4ms | 400 000 | `x"6_1A80"` | `b"0110_0001_1010_1000_0000"` |
+| 10ms | 1 000 000 | `x"F_4240"` | `b"1111_0100_0010_0100_0000"` |
+| 250ms | 25 000 000 | `x"17D_7840"` | `b"0001_0111_1101_0111_1000_0100_0000"` |
+| 500ms | 50 000 000 | `x"2FA_F080"` | `b"0010_1111_1010_1111_0000_1000_0000"` |
+| 1sec | 100 000 000 | `x"5F5_E100"` | `b"0101_1111_0101_1110_0001_0000_0000"` |
 
 ## Part 2: VHDL code for clock enable
 
