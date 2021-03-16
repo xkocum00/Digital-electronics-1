@@ -23,3 +23,4 @@
   },
 }
 ```
+![ScreenShot](IMAGES/wavedrom.png)
