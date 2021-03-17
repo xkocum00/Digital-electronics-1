@@ -11,7 +11,7 @@
     {name: 'A: disp_seg_o(6)', wave: 'xx01.0.1.0x.', },
     {name: 'B: disp_seg_o(5)', wave: 'xx0.......xx', },
     {name: 'C: disp_seg_o(4)', wave: 'xx0..10..1xx', },
-    {name: 'D: disp_seg_o(3)', wave: 'xx01010101xx', },
+    {name: 'D: disp_seg_o(3)', wave: 'xx01..01..xx', },
     {name: 'E: disp_seg_o(2)', wave: 'xx1..01..0xx', },
     {name: 'F: disp_seg_o(1)', wave: 'xx1.01..01xx', },
     {name: 'G: disp_seg_o(0)', wave: 'xx010..10.xx', },
