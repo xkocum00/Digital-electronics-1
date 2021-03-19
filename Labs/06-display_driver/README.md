@@ -1,5 +1,5 @@
-Part 1: Preparation tasks
-Timing diagram figure for displaying value 3.142
+# Part 1: Preparation tasks
+## Timing diagram figure for displaying value 3.142
 ```javascript
 {signal: [
   ['Digit position',
