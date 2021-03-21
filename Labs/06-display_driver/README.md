@@ -55,17 +55,6 @@ end process p_mux;
 ```
 ## Listing of VHDL testbench file tb_driver_7seg_4digits with syntax highlighting and asserts,
 ```vhdl
-------------------------------------------------------------------------
---
--- Template for 4-digit 7-segment display driver testbench.
--- Nexys A7-50T, Vivado v2020.1.1, EDA Playground
---
--- Copyright (c) 2020-Present Tomas Fryza
--- Dept. of Radio Electronics, Brno University of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-------------------------------------------------------------------------
-
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -164,14 +153,15 @@ begin
         s_dp_i         <= "0111";
         
         wait for 600 ns;
-        s_data3_i      <= "0011";
+        s_data3_i      <= "0000";
         s_data2_i      <= "0001";
-        s_data1_i      <= "0100";
-        s_data0_i      <= "0111";
+        s_data1_i      <= "0000";
+        s_data0_i      <= "0001";
         
         report "Stimulus process finished" severity note;
         wait;
     end process p_stimulus;
 end architecture testbench;
+
 ```
 ![ScreenShot](IMAGES/1.png)
