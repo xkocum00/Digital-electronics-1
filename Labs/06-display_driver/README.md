@@ -174,3 +174,4 @@ begin
     end process p_stimulus;
 end architecture testbench;
 ```
+![ScreenShot](IMAGES/1.png)
