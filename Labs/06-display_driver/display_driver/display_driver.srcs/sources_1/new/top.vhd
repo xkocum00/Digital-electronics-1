@@ -46,7 +46,7 @@ entity top is
          CF :           out STD_LOGIC;
          CG :           out STD_LOGIC;
          DP :           out STD_LOGIC;
-         AN :           out STD_LOGIC_VECTOR (8 - 1  downto 0)
+         AN :           out STD_LOGIC_VECTOR (16 - 1  downto 0)
      
      );
      
