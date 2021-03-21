@@ -26,7 +26,7 @@
 }
 ```
 ![ScreenShot](IMAGES/wavedrom.png)
-## listing of pmux
+## Listing of VHDL code of the process p_mux with syntax highlighting.
 ```vhdl
 p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i) 
 begin                                                            
