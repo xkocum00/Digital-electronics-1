@@ -26,6 +26,7 @@
 }
 ```
 ![ScreenShot](IMAGES/wavedrom.png)
+# Display driver. Submit:
 ## Listing of VHDL code of the process p_mux with syntax highlighting.
 ```vhdl
 p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i) 
@@ -217,4 +218,7 @@ begin
 
 end architecture Behavioral;
 ```
+# Eight-digit driver. Submit:
+
+## Image of the driver schematic. The image can be drawn on a computer or by hand.
 ![ScreenShot](IMAGES/2.png)
