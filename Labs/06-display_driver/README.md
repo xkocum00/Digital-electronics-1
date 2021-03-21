@@ -53,3 +53,4 @@ begin
      end case;                                                   
 end process p_mux;   
 ```
+## Listing of VHDL testbench file tb_driver_7seg_4digits with syntax highlighting and asserts,
