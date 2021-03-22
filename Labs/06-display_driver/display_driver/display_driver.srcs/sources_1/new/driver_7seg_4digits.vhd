@@ -118,6 +118,11 @@ begin
                 s_hex <= data0_i;
                 dp_o  <= dp_i(0);
                 dig_o <= "1110"; 
+                
+            when others =>           
+                s_hex <= data0_i;    
+                dp_o  <= dp_i(0);    
+                dig_o <= "1110";         
          end case;
     end process p_mux;
 
