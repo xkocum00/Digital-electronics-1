@@ -1,16 +1,6 @@
 # Lab 7: Latches and Flip-flops
 
-![Logo](../../logolink_eng.jpg)
-
-
 ### Learning objectives
-
-In this laboratory exercise, you will study the differences between a statically controlled latch and flip-flops that are synchronized with a clock signal. In VHDL, combinational and synchronous processes will be used and the difference between asynchronous and synchronous reset will be illustrated.
-
-<!--
-![Nexys A7 board](Images/nexys_a7_driver.jpg)
--->
-
 
 ## Preparation tasks (done before the lab at home)
 
