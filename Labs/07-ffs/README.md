@@ -16,38 +16,37 @@ In this laboratory exercise, you will study the differences between a statically
 
 Write characteristic equations and complete truth tables for D, JK, T flip-flops where `q(n)` represents main output value before the clock edge and `q(n+1)` represents value after the clock edge.
 
-![Characteristic equations](Images/eq_flip_flops.png)
-<!--
-\begin{align*}
-    q_{n+1}^D =&~ \\
-    q_{n+1}^{JK} =&\\
-    q_{n+1}^T =&\\
-\end{align*}-->
-
+**q** n+1 (D) = d
+   
+   **q** n+1 (JK) = j * /q(2) + /k * q(n)
+   
+   **q** n+1 (T) = t * /q(n) + /t * q(n)
+   
+   
    | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-: | :-- |
-   | ![rising](Images/eq_uparrow.png) | 0 | 0 |  |  |
-   | ![rising](Images/eq_uparrow.png) | 0 | 1 |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 0 | 0  | no change |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 1 | 0 | change |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 0 | 1 | change |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 1 | 1 | no change |
 
    | **clk** | **j** | **k** | **q(n)** | **q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-: | :-: | :-- |
-   | ![rising](Images/eq_uparrow.png) | 0 | 0 | 0 | 0 | No change |
-   | ![rising](Images/eq_uparrow.png) | 0 | 0 | 1 | 1 | No change |
-   | ![rising](Images/eq_uparrow.png) | 0 |  |  |  |  |
-   | ![rising](Images/eq_uparrow.png) | 0 |  |  |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |  |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 0 | 0 | 0 | No change |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 0 | 1 | 1 | No change |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 1 | 0 | 0 | reset |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 1 | 1 | 0 | reset |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 0 | 0 | 1 | set |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 0 | 1 | 1 | set |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 1 | 0 | 1 | toggle |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 1 | 1 | 0 | toggle |
 
    | **clk** | **t** | **q(n)** | **q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-: | :-- |
-   | ![rising](Images/eq_uparrow.png) | 0 | 0 |  |  |
-   | ![rising](Images/eq_uparrow.png) | 0 | 1 |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |
-   | ![rising](Images/eq_uparrow.png) | 1 |  |  |  |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 0 | 0 | no change |
+   | ![rising](IMAGES/eq_uparrow.png) | 0 | 1 | 1 | no change |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 0 | 1 | toggle |
+   | ![rising](IMAGES/eq_uparrow.png) | 1 | 1 | 0 | toggle |
 
 
 <!--
