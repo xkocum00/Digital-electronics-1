@@ -222,6 +222,8 @@ p_d_ff_arst : process(clk)
 
 end Behavioral;
 ```
+### Screenshot, with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified
+![ScreenShot](IMAGES/5.png)
 ### VHDL CODE 'p_d_ff_rst'
 ```vhdl
  p_d_ff_rst : process (clk)  
@@ -298,8 +300,7 @@ end Behavioral;
 ![ScreenShot](images/3_2.PNG)
 
 
-### Screenshot, with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified
-![ScreenShot](IMAGES/5.png)
+
 1. Preparation tasks (done before the lab at home). Submit:
     * Characteristic equations and completed tables for D, JK, T flip-flops.
 
