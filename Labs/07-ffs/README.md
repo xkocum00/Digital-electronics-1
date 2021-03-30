@@ -144,7 +144,7 @@ end Behavioral;
 ```
 
 ### Screenshot with simulated time waveforms; always display all inputs and outputs. The full functionality of the entity must be verified
-![ScreenShot](IMAGES/4.PNG)  
+![ScreenShot](IMAGES/4.png)  
 
 
 ## Lab assignment
