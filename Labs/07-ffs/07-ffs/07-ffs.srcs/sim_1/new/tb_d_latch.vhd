@@ -96,8 +96,9 @@ p_reset_gen : process
             s_d <= '0';
             wait for 8 ns;
             -- /d sequence
+            
             s_en <= '1'; wait for 5 ns;
-            assert(s_q = '0' and s_q_bar = '1') --ak to neni nula vypise sa to co je v tom reporte
+            assert(s_q = '0' and s_q_bar = '1') 
             report " s_q,q_bar expected 01" severity error;
         
             wait for 6 ns;             
@@ -133,7 +134,6 @@ p_reset_gen : process
             s_d  <= '0';
             wait for 10 ns; 
             
-            --s_arst <= '0'; wait for 10 ns;
             s_en <= '1'; wait for 10 ns;
             assert(s_q = '0' and s_q_bar = '1') 
             report " asrt expected 1" severity error;
