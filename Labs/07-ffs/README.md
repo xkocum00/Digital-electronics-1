@@ -146,9 +146,93 @@ end Behavioral;
 ### Screenshot with simulated time waveforms; always display all inputs and outputs. The full functionality of the entity must be verified
 ![ScreenShot](IMAGES/4.png)  
 
-
+## Part 3: Flip-flops
+### VHDL code listing of the processes p_d_ff_arst, p_d_ff_rst, p_jk_ff_rst, p_t_ff_rst with syntax highlighting
+### VHDL CODE 'p_d_ff_arst'
 ## Lab assignment
+```vhdl
+p_d_ff_arst : process (clk, arst)  --toto je ta tabulka vlastne    --proces sa spusti pri kazdej zmene hrany
+ begin                                                              
+     if (arst = '1') then     --rovnake ako d_latch                                      
+         q <= '0';                                                  
+         q_bar <= '1';                                              
+     elsif rising_edge(clk) then                                          
+         q <= d;                                                    
+         q_bar <= not d;                                            
+     end if;                                                        
+ end process p_d_ff_arst; 
+```
 
+### Listing of VHDL clock, reset and stimulus processes from the testbench files with syntax highlighting and asserts
+### VHDL CODE 'd_ff_arst'
+```vhdl
+ p_clk_gen : process
+    begin
+        while now < 750 ns loop         -- 75 periods of 100MHz clock
+            s_clk_100MHz <= '0';
+            wait for c_CLK_100MHZ_PERIOD / 2;
+            s_clk_100MHz <= '1';
+            wait for c_CLK_100MHZ_PERIOD / 2;
+        end loop;
+        wait;                           -- Process is suspended forever
+    end process p_clk_gen;
+    
+    --------------------------------------------------------------------
+    -- Reset generation process
+    --------------------------------------------------------------------
+    p_reset_gen : process 
+    begin
+        s_arst <= '0';
+        wait for 58 ns;
+        
+        -- Reset activated
+        s_arst <= '1';
+        wait for 15 ns;
+
+        -- Reset deactivated
+        s_arst <= '0';
+                
+        wait;
+    end process p_reset_gen;
+    
+    -------------------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------------------
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        
+        wait for 13 ns; s_d <= '1';
+        assert(s_q = '0' and s_q_bar = '1') 
+        report " Error, s_q / s_q_bar not as expected" severity error;
+        
+        wait for 10 ns; s_d <= '0';
+        assert(s_q = '0' and s_q_bar = '1') 
+        report " Error, s_q / s_q_bar not as expected" severity error;
+        
+        wait for 10 ns; s_d <= '1';
+        wait for 10 ns; s_d <= '0';
+        wait for 10 ns; s_d <= '1';
+        assert(s_q = '0' and s_q_bar = '1') 
+        report " Error, s_q / s_q_bar not as expected" severity error;
+        
+        wait for 10 ns; s_d <= '0';
+        wait for 10 ns; s_d <= '0';
+        assert(s_q = '1' and s_q_bar = '0') 
+        report " Error, s_q / s_q_bar not as expected" severity error;
+        
+        wait for 10 ns; s_d <= '1';
+        wait for 10 ns; s_d <= '1';
+        wait for 10 ns; s_d <= '0';
+        wait for 10 ns; s_d <= '1';
+        wait for 10 ns; s_d <= '0';
+ 
+        report "Stimulus process finished" severity note;        
+        wait;
+    end process p_stimulus;
+```
+### Screenshot, with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified
+![ScreenShot](IMAGES/5.png)
 1. Preparation tasks (done before the lab at home). Submit:
     * Characteristic equations and completed tables for D, JK, T flip-flops.
 
