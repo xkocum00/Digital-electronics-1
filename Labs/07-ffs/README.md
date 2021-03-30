@@ -19,7 +19,9 @@ Write characteristic equations and complete truth tables for D, JK, T flip-flops
    | ![rising](IMAGES/eq_uparrow.png) | 0 | 1 | 0 | change |
    | ![rising](IMAGES/eq_uparrow.png) | 1 | 0 | 1 | change |
    | ![rising](IMAGES/eq_uparrow.png) | 1 | 1 | 1 | no change |
+   
    ![rce](IMAGES/2.png)
+   
    | **clk** | **j** | **k** | **q(n)** | **q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-: | :-: | :-- |
    | ![rising](IMAGES/eq_uparrow.png) | 0 | 0 | 0 | 0 | No change |
@@ -30,7 +32,9 @@ Write characteristic equations and complete truth tables for D, JK, T flip-flops
    | ![rising](IMAGES/eq_uparrow.png) | 1 | 0 | 1 | 1 | set |
    | ![rising](IMAGES/eq_uparrow.png) | 1 | 1 | 0 | 1 | toggle |
    | ![rising](IMAGES/eq_uparrow.png) | 1 | 1 | 1 | 0 | toggle |
+   
    ![rce](IMAGES/3.png)
+   
    | **clk** | **t** | **q(n)** | **q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-: | :-- |
    | ![rising](IMAGES/eq_uparrow.png) | 0 | 0 | 0 | no change |
