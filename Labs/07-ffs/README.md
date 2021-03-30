@@ -151,88 +151,156 @@ end Behavioral;
 ### VHDL CODE 'p_d_ff_arst'
 ## Lab assignment
 ```vhdl
-p_d_ff_arst : process (clk, arst)  --toto je ta tabulka vlastne    --proces sa spusti pri kazdej zmene hrany
- begin                                                              
-     if (arst = '1') then     --rovnake ako d_latch                                      
-         q <= '0';                                                  
-         q_bar <= '1';                                              
-     elsif rising_edge(clk) then                                          
-         q <= d;                                                    
-         q_bar <= not d;                                            
-     end if;                                                        
- end process p_d_ff_arst; 
+p_d_ff_arst : process(clk)
+    begin        
+        if rising_edge(clk) then
+            if (rst = '1') then
+                q       <= '0';
+                q_bar   <= '1';
+            else
+                q       <= d;
+                q_bar   <= not d;
+            end if;
+        end if;
+    end process p_d_ff_arst;
 ```
 
 ### Listing of VHDL clock, reset and stimulus processes from the testbench files with syntax highlighting and asserts
 ### VHDL CODE 'd_ff_arst'
 ```vhdl
- p_clk_gen : process
+    p_clk_gen : process
     begin
         while now < 750 ns loop         -- 75 periods of 100MHz clock
-            s_clk_100MHz <= '0';
+            s_clk <= '0';
             wait for c_CLK_100MHZ_PERIOD / 2;
-            s_clk_100MHz <= '1';
+            s_clk <= '1';
             wait for c_CLK_100MHZ_PERIOD / 2;
         end loop;
-        wait;                           -- Process is suspended forever
+        wait;
     end process p_clk_gen;
     
     --------------------------------------------------------------------
     -- Reset generation process
     --------------------------------------------------------------------
-    p_reset_gen : process 
+    p_reset_gen : process
     begin
-        s_arst <= '0';
-        wait for 58 ns;
-        
-        -- Reset activated
-        s_arst <= '1';
-        wait for 15 ns;
-
-        -- Reset deactivated
-        s_arst <= '0';
-                
+        s_rst <= '0';
+        wait for 12 ns;
+        s_rst <= '1';                 -- Reset activated
+        wait for 30 ns;
+        s_rst <= '0';
         wait;
     end process p_reset_gen;
-    
-    -------------------------------------------------------------------
-    -- Data generation process
-    --------------------------------------------------------------------
+
     p_stimulus : process
     begin
-        report "Stimulus process started" severity note;
+        -- Report a note at the begining of stimulus process
+        report "Stimulus process started. ---------------------------------------" severity note;
+        s_d     <=  '1';
+        wait for 10ns;
+        assert (s_q = '1' and s_q_bar = '0') report "ERROR 1" severity note;
         
-        wait for 13 ns; s_d <= '1';
-        assert(s_q = '0' and s_q_bar = '1') 
-        report " Error, s_q / s_q_bar not as expected" severity error;
+        s_d     <=  '0';
+        wait for 10ns;
+        assert (s_q = '0' and s_q_bar = '1') report "ERROR 2" severity note;
         
-        wait for 10 ns; s_d <= '0';
-        assert(s_q = '0' and s_q_bar = '1') 
-        report " Error, s_q / s_q_bar not as expected" severity error;
+        s_d     <=  '1';
+        wait for 10ns;
+        assert (s_q = '0' and s_q_bar = '1') report "ERROR 3" severity note;
+       
+        s_d     <=  '0';
+        wait for 10ns;
+        assert (s_q = '0' and s_q_bar = '1') report "ERROR 4" severity note;
         
-        wait for 10 ns; s_d <= '1';
-        wait for 10 ns; s_d <= '0';
-        wait for 10 ns; s_d <= '1';
-        assert(s_q = '0' and s_q_bar = '1') 
-        report " Error, s_q / s_q_bar not as expected" severity error;
+        wait for 20ns;
+        s_d     <=  '1';
+        wait for 25ns;
+        assert (s_q = '1' and s_q_bar = '0') report "ERROR 5" severity note;
         
-        wait for 10 ns; s_d <= '0';
-        wait for 10 ns; s_d <= '0';
-        assert(s_q = '1' and s_q_bar = '0') 
-        report " Error, s_q / s_q_bar not as expected" severity error;
-        
-        wait for 10 ns; s_d <= '1';
-        wait for 10 ns; s_d <= '1';
-        wait for 10 ns; s_d <= '0';
-        wait for 10 ns; s_d <= '1';
-        wait for 10 ns; s_d <= '0';
- 
-        report "Stimulus process finished" severity note;        
         wait;
     end process p_stimulus;
+
+end Behavioral;
 ```
 ### Screenshot, with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified
 ![ScreenShot](IMAGES/5.png)
+### VHDL CODE 'p_d_ff_rst'
+```vhdl
+ p_d_ff_rst : process (clk)  
+ begin                                                              
+     if (rst = '1') then                                         
+         q <= '0';                                                  
+         q_bar <= '1';                                              
+     else                                          
+         q <= d;                                                    
+         q_bar <= not d;                                            
+     end if;   
+ end process p_d_ff_rst;   
+```
+
+### Listing of VHDL clock, reset and stimulus processes from the testbench files with syntax highlighting and asserts
+### VHDL CODE 'd_ff_rst'
+```vhdl
+
+    p_clk_gen : process
+    begin
+        while now < 750 ns loop         -- 75 periods of 100MHz clock
+            s_clk <= '0';
+            wait for c_CLK_100MHZ_PERIOD / 2;
+            s_clk <= '1';
+            wait for c_CLK_100MHZ_PERIOD / 2;
+        end loop;
+        wait;
+    end process p_clk_gen;
+    
+    --------------------------------------------------------------------
+    -- Reset generation process
+    --------------------------------------------------------------------
+    p_reset_gen : process
+    begin
+        s_rst <= '0';
+        wait for 12 ns;
+        s_rst <= '1';                 -- Reset activated
+        wait for 30 ns;
+        s_rst <= '0';
+        wait;
+    end process p_reset_gen;
+
+    p_stimulus : process
+    begin
+        
+        
+        s_d     <=  '1';
+        wait for 10ns;
+        assert (s_q = '1' and s_q_bar = '0') report "ERROR 1" severity note;
+        
+        s_d     <=  '0';
+        wait for 10ns;
+        assert (s_q = '0' and s_q_bar = '1') report "ERROR 2" severity note;
+        
+        s_d     <=  '1';
+        wait for 10ns;
+        assert (s_q = '0' and s_q_bar = '1') report "ERROR 3" severity note;
+       
+        s_d     <=  '0';
+        wait for 10ns;
+        assert (s_q = '0' and s_q_bar = '1') report "ERROR 4" severity note;
+        
+        wait for 20ns;
+        s_d     <=  '1';
+        wait for 25ns;
+        assert (s_q = '1' and s_q_bar = '0') report "ERROR 5" severity note;
+        
+        wait;
+    end process p_stimulus;
+
+end Behavioral;
+```
+### Screenshot, with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified
+![ScreenShot](IMAGES/5.png)
+
+
+
 1. Preparation tasks (done before the lab at home). Submit:
     * Characteristic equations and completed tables for D, JK, T flip-flops.
 
