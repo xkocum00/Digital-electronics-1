@@ -241,7 +241,7 @@ end Behavioral;
 ### Listing of VHDL clock, reset and stimulus processes from the testbench files with syntax highlighting and asserts
 ### VHDL CODE 'd_ff_rst'
 ```vhdl
-```vhdl
+
     p_clk_gen : process
     begin
         while now < 750 ns loop         -- 75 periods of 100MHz clock
