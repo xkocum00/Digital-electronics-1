@@ -268,8 +268,8 @@ end Behavioral;
 
     p_stimulus : process
     begin
-        -- Report a note at the begining of stimulus process
-        report "Stimulus process started. ---------------------------------------" severity note;
+        
+        
         s_d     <=  '1';
         wait for 10ns;
         assert (s_q = '1' and s_q_bar = '0') report "ERROR 1" severity note;
