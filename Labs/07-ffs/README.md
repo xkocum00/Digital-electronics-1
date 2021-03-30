@@ -170,7 +170,7 @@ p_d_ff_arst : process(clk)
 ```vhdl
     p_clk_gen : process
     begin
-        while now < 750 ns loop         -- 75 periods of 100MHz clock
+        while now < 750 ns loop         
             s_clk <= '0';
             wait for c_CLK_100MHZ_PERIOD / 2;
             s_clk <= '1';
@@ -194,8 +194,7 @@ p_d_ff_arst : process(clk)
 
     p_stimulus : process
     begin
-        -- Report a note at the begining of stimulus process
-        report "Stimulus process started. ---------------------------------------" severity note;
+        
         s_d     <=  '1';
         wait for 10ns;
         assert (s_q = '1' and s_q_bar = '0') report "ERROR 1" severity note;
