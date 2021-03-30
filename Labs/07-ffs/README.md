@@ -43,16 +43,31 @@ Write characteristic equations and complete truth tables for D, JK, T flip-flops
 ### VHDL code listing of the process p_d_latch with syntax highlighting
 ### VHDL CODE 
 ```vhdl
- p_d_latch : process (d, arst, en)  --toto je ta tabulka vlastne
-    begin
-        if (arst = '1') then
-             q      <= '0';
-             q_bar  <= '1';
-        elsif (en = '1') then
-           q      <= d;
-           q_bar   <= not d;
-        end if;
- end process p_d_latch;
+ entity d_latch is                     
+    Port (                            
+        en     :in STD_LOGIC;         
+        arst   :in STD_LOGIC;         
+        d      :in STD_LOGIC;         
+        q      :out STD_LOGIC;        
+        q_bar  :out STD_LOGIC         
+        );                            
+end d_latch;                          
+                                      
+architecture Behavioral of d_latch is 
+                                      
+begin                                 
+    p_d_latch : process (d, arst, en) 
+    begin                             
+        if (arst = '1') then          
+             q      <= '0';           
+             q_bar  <= '1';           
+        elsif (en = '1') then         
+             q      <= d;             
+             q_bar  <= not d;         
+        end if;                       
+    end process p_d_latch;            
+                                      
+end Behavioral;                       
 ```
 
 ### Listing of VHDL reset and stimulus processes from the testbench tb_d_latch file with syntax highlighting and asserts
@@ -129,7 +144,7 @@ Write characteristic equations and complete truth tables for D, JK, T flip-flops
 ```
 
 ### Screenshot with simulated time waveforms; always display all inputs and outputs. The full functionality of the entity must be verified
-![ScreenShot](images/2_1.PNG)  
+![ScreenShot](IMAGES/4.PNG)  
 
 
 ## Lab assignment
