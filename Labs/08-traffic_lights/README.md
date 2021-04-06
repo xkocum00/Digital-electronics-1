@@ -1,7 +1,5 @@
 ## Preparation tasks (done before the lab at home)
 
-Read the article [Implementing a Finite State Machine in VHDL](https://www.allaboutcircuits.com/technical-articles/implementing-a-finite-state-machine-in-vhdl/) (parts **A Bit of Background** and **The Finite State Machine**) and understand what an FSM is.
-
 Fill in the table with the state names and output values accoding to the given inputs. Let the reset has just been applied.
 
 | **Input P** | `0` | `0` | `1` | `1` | `0` | `1` | `0` | `1` | `1` | `1` | `1` | `0` | `0` | `1` | `1` | `1` |
@@ -18,7 +16,7 @@ Fill in the table with the state names and output values accoding to the given i
 | :-: | :-: | :-: | :-: | :-: |
 | LD16 | N15, M16, R12 | `1,0,0` | `1,1,0`  | `0,1,0` |
 | LD17 | N16, R11, G14 | `1,0,0` | `1,1,0`  | `0,1,0` |
-
+![Schematic](Images/schematic.png)
 <br>
 <br>
 
