@@ -139,6 +139,7 @@ p_output_fsm : process(s_state)
 
 ```
 ![Simulation](Images/2.png)
+![Simulation](Images/3.png)
 &nbsp;
 ## Part 3: Smart controller
 &nbsp;
