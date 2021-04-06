@@ -144,7 +144,7 @@ p_output_fsm : process(s_state)
 ## Part 3: Smart controller
 &nbsp;
 ### State table
-| **Current state** | **Direction South** | **Direction West** | **Delay** | **CAR sensor WEST/SOUTH** |
+| **Current state** | **Direction South** | **Direction West** | **Delay** | **induction sensor WEST/SOUTH** |
 | :-- | :-: | :-: | :-: | :-: |
 | `STOP1`      | red    | red | 1 sec | =>`WEST_GO` |
 | `WEST_GO`    | red    | green | 4 sec | `10`=>`WEST_GO`;  `01`=>`STOP2`; `00`=>`STOP1` |
