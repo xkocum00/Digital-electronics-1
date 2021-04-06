@@ -16,6 +16,7 @@ Fill in the table with the state names and output values accoding to the given i
 | :-: | :-: | :-: | :-: | :-: |
 | LD16 | N15, M16, R12 | `1,0,0` | `1,1,0`  | `0,1,0` |
 | LD17 | N16, R11, G14 | `1,0,0` | `1,1,0`  | `0,1,0` |
+
 ![Schematic](Images/schematic.png)
 <br>
 <br>
