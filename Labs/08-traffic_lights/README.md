@@ -24,6 +24,8 @@ Fill in the table with the state names and output values accoding to the given i
 
 ## Part 2: Traffic light controller
 
+### State diagram
+![Schematic](Images/1.png)
 
 &nbsp;
 
