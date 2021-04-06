@@ -71,4 +71,4 @@ begin
             end if;       
         end if;
         
-    end process p_jk_ff_rst;
+    end process p_jk_ff_rst
