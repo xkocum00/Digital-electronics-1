@@ -152,6 +152,7 @@ p_output_fsm : process(s_state)
 | `STOP2`      | red    | red | 1 sec | =>`SOUTH_GO` |
 | `SOUTH_GO`   | green  | red | 4 sec | `01`=>`SOUTH_GO`;  `10`=>`STOP1`; `00`=>`STOP1` |
 | `SOUTH_WAIT` | yellow | red | 2 sec | =>`STOP1` |
+
 &nbsp;
 
 &nbsp;
