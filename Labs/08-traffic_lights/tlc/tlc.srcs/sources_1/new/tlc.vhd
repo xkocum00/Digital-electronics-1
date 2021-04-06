@@ -186,7 +186,7 @@ begin
                 south_o <= c_RED;
                 west_o  <= c_RED;
             when SOUTH_GO =>
-                south_o <= c_YELLOW;
+                south_o <= c_GREEN;
                 west_o  <= c_RED;
             when SOUTH_WAIT =>  
                 south_o <= c_YELLOW;
